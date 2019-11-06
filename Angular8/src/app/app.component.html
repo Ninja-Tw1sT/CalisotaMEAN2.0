@@ -1,0 +1,38 @@
+<mat-toolbar color="primary" class="navbar">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+
+  <h1>  Calisota</h1>
+  <span class="fill-space"></span>
+  <div class="these">
+    <a mat-button routerLink="/home" routerLinkActive="active">Résumé</a>
+    <a mat-button routerLink="/userprofile" routerLinkActive="active">Profile</a>
+    <a mat-button routerLink="/contacts" routerLinkActive="active">Contacts</a>
+    <a mat-button routerLink="/gamecard" routerLinkActive="active">Game Card</a>
+  </div>
+  </mat-toolbar-row>
+
+
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/home'"> Résumé </a>
+      <a mat-list-item [routerLink]="'/contacts'"> Contacts </a>
+      <a mat-list-item [routerLink]="'/add-education'" routerLinkActive="active"> Add To Education </a>
+      <a mat-list-item [routerLink]="'/add-employment'" routerLinkActive="active"> Add To Employment </a>
+      <a mat-list-item [routerLink]="'/add-certification'" routerLinkActive="active"> Add To Certifications </a>
+      <a mat-list-item [routerLink]="'/logout()'"> Logout </a>
+      <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+
+
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

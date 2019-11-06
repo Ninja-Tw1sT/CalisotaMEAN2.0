@@ -1,0 +1,51 @@
+  <mat-expansion-panel>
+  <mat-expansion-panel-header>
+      <mat-panel-title>
+        Employment
+      </mat-panel-title>
+      <mat-panel-description>
+        Add your Employment
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <form #myForm="ngForm">
+      <div *ngFor="let employer of EmployerList">
+        <div style="border:1px solid blue; text-align:center; padding:10px; margin:5px;">
+          <mat-form-field>
+              <input matInput placeholder="Employer Name" class="form-control" name="employerName_{{employer.id" />
+          </mat-form-field><br>
+          <mat-form-field>
+              <input matInput placeholder="Address" class="form-control" name="employerAddress_{{employer.id}}" />
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="City" class="form-control" name="employerCity_{{employer.id}}" />
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="State" class="form-control" name="employerState_{{employer.id}}" />
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="ZIP" class="form-control" name="employerZIP_{{employer.id}}" />
+          </mat-form-field><br>
+          <mat-form-field>
+              <input matInput placeholder="Supervisor or Contact" class="form-control" name="employerContact_{{employer.id}}" />
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="Phone" class="form-control" name="employerPhone_{{employer.id}}" />
+          </mat-form-field><br>
+          <mat-form-field>
+              <input matInput placeholder="Position" class="form-control" name="employerPosition_{{employer.id}}" />
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="Start Date"class="form-control" name="employerStartDate_{{employer.id}}" />
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="End Date"class="form-control" name="employerEndDate_{{employer.id}}" />
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="Reason For Quitting"class="form-control" name="employerReason_{{employer.id}}" />
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+    </mat-expansion-panel>
+
+
