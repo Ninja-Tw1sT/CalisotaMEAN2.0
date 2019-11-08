@@ -22,8 +22,6 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './auth/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './auth/auth.interceptor';
-import { MatListModule, MatIconModule, MatSidenavModule, MatButtonModule, MatToolbarModule } from '@angular/material';
-import { TestpageComponent } from './components/testpage/testpage.component';
 import { AddEmploymentComponent } from './components/add-employment/add-employment.component';
 import { AddEducationComponent } from './components/add-education/add-education.component';
 import { AddCertificationComponent } from './components/add-certification/add-certification.component';
@@ -40,7 +38,6 @@ import { GamecardComponent } from './components/gamecard/gamecard.component';
     UserProfileComponent,
     SignInComponent,
     HomeComponent,
-    TestpageComponent,
     AddEducationComponent,
     AddCertificationComponent,
     AddEmploymentComponent,
@@ -55,12 +52,7 @@ import { GamecardComponent } from './components/gamecard/gamecard.component';
     RouterModule.forRoot(routes),
     HttpClientModule,
     MaterialModule,
-    BrowserAnimationsModule,
-    MatListModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatToolbarModule,
+    BrowserAnimationsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

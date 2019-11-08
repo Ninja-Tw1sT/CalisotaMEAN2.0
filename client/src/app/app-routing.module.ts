@@ -6,7 +6,6 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AuthGuard } from './auth/auth.guard';
 import { HomeComponent } from './components/home/home.component';
-import { TestpageComponent } from './components/testpage/testpage.component';
 import { AddCertificationComponent } from './components/add-certification/add-certification.component';
 import { AddEducationComponent } from './components/add-education/add-education.component';
 import { AddEmploymentComponent } from './components/add-employment/add-employment.component';
@@ -28,9 +27,6 @@ export const routes: Routes = [
   },
   {
     path: 'home', component: HomeComponent, canActivate: [AuthGuard]
-  },
-  {
-    path: 'testpage', component: TestpageComponent, canActivate: [AuthGuard]
   },
   {
     path: 'add-certification', component: AddCertificationComponent, canActivate: [AuthGuard]
