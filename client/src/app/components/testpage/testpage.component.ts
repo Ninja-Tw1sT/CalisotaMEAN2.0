@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { EmployeeService } from '../shared/employee.service';
-import { Employee } from '../shared/employee.model';
+import { EmployeeService } from '../../shared/employee.service';
+import { Employee } from '../../shared/employee.model';
 
 declare var M: any;
 

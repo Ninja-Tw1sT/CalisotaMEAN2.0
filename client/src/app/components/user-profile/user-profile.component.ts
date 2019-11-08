@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../shared/user.service';
+import { UserService } from '../../shared/user.service';
 import { Router } from '@angular/router';
 
 
@@ -17,7 +17,7 @@ export class UserProfileComponent implements OnInit {
       res=>{
         this.userDetails = res['user'];
       },
-      err => { 
+      err => {
         console.log(err);
        }
     );

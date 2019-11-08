@@ -3,15 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AuthGuard } from './auth/auth.guard';
-import { HomeComponent } from './home/home.component';
-import { TestpageComponent } from './testpage/testpage.component';
-import { AddCertificationComponent } from './add-certification/add-certification.component';
-import { AddEducationComponent } from './add-education/add-education.component';
-import { AddEmploymentComponent } from './add-employment/add-employment.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { GamecardComponent } from './gamecard/gamecard.component';
+import { HomeComponent } from './components/home/home.component';
+import { TestpageComponent } from './components/testpage/testpage.component';
+import { AddCertificationComponent } from './components/add-certification/add-certification.component';
+import { AddEducationComponent } from './components/add-education/add-education.component';
+import { AddEmploymentComponent } from './components/add-employment/add-employment.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
+import { GamecardComponent } from './components/gamecard/gamecard.component';
 
 
 export const routes: Routes = [
