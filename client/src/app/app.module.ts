@@ -25,7 +25,6 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { AddEmploymentComponent } from './components/add-employment/add-employment.component';
 import { AddEducationComponent } from './components/add-education/add-education.component';
 import { AddCertificationComponent } from './components/add-certification/add-certification.component';
-import { ResumeComponent } from './components/resume/resume.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { GamecardComponent } from './components/gamecard/gamecard.component';
 
@@ -41,7 +40,6 @@ import { GamecardComponent } from './components/gamecard/gamecard.component';
     AddEducationComponent,
     AddCertificationComponent,
     AddEmploymentComponent,
-    ResumeComponent,
     ContactsComponent,
     GamecardComponent
   ],

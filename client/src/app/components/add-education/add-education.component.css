@@ -1,0 +1,10 @@
+.mat-button, .mat-stroked-button {
+  background-color:#0c2152;
+  color: #fff;
+}
+
+.mat-button-toggle-group {
+  align-content: flex-end;
+  background-color: blue;
+  color: blue;
+}
