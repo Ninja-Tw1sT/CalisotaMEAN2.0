@@ -13,7 +13,11 @@ export class UserService {
     email: '',
     password: '',
     city: '',
-    phone: ''
+    phone: '',
+    education: [],
+    employment: [],
+    certifications: []
+
   };
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };

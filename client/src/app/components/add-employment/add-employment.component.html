@@ -1,4 +1,84 @@
-  <mat-expansion-panel>
+<form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+  <input type="text" #fullName="ngModel" [(ngModel)]="userService.selectedUser.fullName" name="fullName" placeholder="Full Name"
+  required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !fullName.valid }">
+  <div *ngIf="signUpForm.submitted && !fullName.valid">
+    <label class="validation-message">This field is required.</label>
+  </div>
+  <input type="text" #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" placeholder="Email"
+  required [pattern]="emailRegex"  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !email.valid }">
+  <div *ngIf="signUpForm.submitted && email.errors">
+    <label *ngIf="email.errors.required" class="validation-message">This field is required.</label>
+    <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
+  </div>
+  <input type="password" #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="Password"
+  minlength="4" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
+  <div *ngIf="signUpForm.submitted && password.errors">
+    <label *ngIf="password.errors.required" class="validation-message">This field is required.</label>
+    <label *ngIf="password.errors.minlength" class="validation-message">Enter atleast 4 characters.</label>
+  </div>
+  <input type="text" #city="ngModel" [(ngModel)]="userService.selectedUser.city" name="city" placeholder="City"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !city.valid }">
+  <div *ngIf="signUpForm.submitted && city.errors">
+    <label *ngIf="city.errors.required" class="validation-message">This field is required.</label>
+  </div>
+  <input type="text" #phone="ngModel" [(ngModel)]="userService.selectedUser.phone" name="phone" placeholder="Phone"
+  minlength="10" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !phone.valid }">
+  <div *ngIf="signUpForm.submitted && phone.errors">
+    <label *ngIf="phone.errors.required" class="validation-message">This field is required.</label>
+    <label *ngIf="phone.errors.minlength" class="validation-message">Enter atleast 10 characters.</label>
+  </div>
+  <input type="submit" value="Sign Up">
+</form>
+
+<!-- Success message -->
+<div class="success" *ngIf="showSucessMessage">
+  Saved successfully
+</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+  {{serverErrorMessages}}
+</div>
+
+<table *ngIf="userDetails" class="table-fill">
+  <thead>
+    <tr>
+        <th colspan="2" class="text-center">User Profile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>First Name</td>
+        <td>{{userDetails.fullName.split(' ')[0]}}</td>
+    </tr>
+    <tr>
+        <td>Last Name</td>
+        <td>{{userDetails.fullName.split(' ')[1]}}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{userDetails.email}}</td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td>{{userDetails.city}}</td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>{{userDetails.phone}}</td>
+    </tr>
+    <tr>
+      <td colspan="2" class="text-center">
+        <input type="button" (click)="onLogOut()" value="Logout" />
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<!--
+ <mat-expansion-panel>
   <mat-expansion-panel-header>
       <mat-panel-title>
         Employment
@@ -47,5 +127,5 @@
       </div>
     </form>
     </mat-expansion-panel>
-
+  -->
 
