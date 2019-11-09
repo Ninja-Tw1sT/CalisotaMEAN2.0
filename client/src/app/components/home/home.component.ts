@@ -96,6 +96,9 @@ export class HomeComponent implements OnInit {
       password: '',
       city: '',
       phone: '',
+      education: [],
+      employment: [],
+      certifications: []
     };
     form.resetForm();
     this.serverErrorMessages = '';

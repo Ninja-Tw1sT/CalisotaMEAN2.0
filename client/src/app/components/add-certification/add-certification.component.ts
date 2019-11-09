@@ -4,73 +4,19 @@ import { NgForm } from '@angular/forms';
 import { UserService } from '../../shared/user.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-add-certification',
   templateUrl: './add-certification.component.html',
   styleUrls: ['./add-certification.component.css']
 })
 export class AddCertificationComponent implements OnInit {
-  userDetails;
-  constructor(private userService: UserService, private router: Router) { }
-    public SchoolList: School[];
-    public EmployerList: Employer[];
-    public CertificationList: Certificate[];
-    showSucessMessage: boolean;
-    serverErrorMessages: string;
-  model = {
-    fullName: '',
-    email: '',
-    password: '',
-    city: '',
-    phone: ''
-  };
+  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  showSucessMessage: boolean;
+  serverErrorMessages: string;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.SchoolList = [];
-    this.EmployerList = [];
-    this.CertificationList = [];
-    this.userService.getUserProfile().subscribe(
-      res=>{
-        this.userDetails = res['user'];
-      },
-      err => {
-        console.log(err);
-       }
-    );
-  }
-
-  addNewEmployer() {
-    var emp = new Employer();
-    emp.id = this.EmployerList.length;
-    this.EmployerList.push(emp);
-    console.log(`New Employer Added...`);
-  }
-
-  removeLastEmployer() {
-    this.EmployerList.pop();
-  }
-
-  addNewSchool() {
-    var sch = new School();
-    sch.id = this.SchoolList.length;
-    this.SchoolList.push(sch);
-    console.log(`New School Added...`);
-  }
-
-  removeLastSchool() {
-    this.SchoolList.pop();
-  }
-
-  addNewCertification() {
-    var crt = new Certificate();
-    crt.id = this.CertificationList.length;
-    this.CertificationList.push(crt);
-    console.log(`New Certification Added...`);
-  }
-
-  removeLastCertification() {
-    this.CertificationList.pop();
   }
 
   onSubmit(form: NgForm) {
@@ -83,12 +29,13 @@ export class AddCertificationComponent implements OnInit {
       err => {
         if (err.status === 422) {
           this.serverErrorMessages = err.error.join('<br/>');
-        } else {
+        }
+        else
           this.serverErrorMessages = 'Something went wrong.Please contact admin.';
       }
-    }
     );
   }
+
   resetForm(form: NgForm) {
     this.userService.selectedUser = {
       fullName: '',
@@ -96,30 +43,12 @@ export class AddCertificationComponent implements OnInit {
       password: '',
       city: '',
       phone: '',
+      education: [],
+      employment: [],
+      certifications: []
     };
     form.resetForm();
     this.serverErrorMessages = '';
   }
 
-}
-
-
-export class School {
-  public id: number;
-  public name: string;
-}
-
-export class Employer {
-  public id: number;
-  public name: string;
-  public startdate: Date;
-  public enddate: Date;
-  public reasonforquitting: string;
-}
-
-export class Certificate {
-  public id: number;
-  public name: string;
-  public startdate: Date;
-  public enddate: Date;
 }

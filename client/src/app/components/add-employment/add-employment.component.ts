@@ -17,14 +17,6 @@ export class AddEmploymentComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getUserProfile().subscribe(
-      res=>{
-        this.userDetails = res['user'];
-      },
-      err => {
-        console.log(err);
-       }
-    );
   }
 
   onSubmit(form: NgForm) {
@@ -51,6 +43,9 @@ export class AddEmploymentComponent implements OnInit {
       password: '',
       city: '',
       phone: '',
+      education: [],
+      employment: [],
+      certifications: []
     };
     form.resetForm();
     this.serverErrorMessages = '';

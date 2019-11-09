@@ -1,35 +1,61 @@
 <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
-  <input type="text" #fullName="ngModel" [(ngModel)]="userService.selectedUser.fullName" name="fullName" placeholder="Full Name"
-  required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !fullName.valid }">
-  <div *ngIf="signUpForm.submitted && !fullName.valid">
+  <input type="text" #employerName="ngModel" [(ngModel)]="userService.selectedUser.employerName" name="employerName" placeholder="Employer Name"
+  required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !employerName.valid }">
+  <div *ngIf="signUpForm.submitted && !employerName.valid">
     <label class="validation-message">This field is required.</label>
   </div>
-  <input type="text" #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" placeholder="Email"
-  required [pattern]="emailRegex"  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !email.valid }">
-  <div *ngIf="signUpForm.submitted && email.errors">
-    <label *ngIf="email.errors.required" class="validation-message">This field is required.</label>
-    <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
+  <input type="text" #employerAddress="ngModel" [(ngModel)]="userService.selectedUser.employerAddress" name="employerAddress" placeholder="Employer Address"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !employerAddress.valid }">
+  <div *ngIf="signUpForm.submitted && employerAddress.errors">
+    <label *ngIf="employerAddress.errors.required" class="validation-message">This field is required.</label>
   </div>
-  <input type="password" #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="Password"
-  minlength="4" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
-  <div *ngIf="signUpForm.submitted && password.errors">
-    <label *ngIf="password.errors.required" class="validation-message">This field is required.</label>
-    <label *ngIf="password.errors.minlength" class="validation-message">Enter atleast 4 characters.</label>
+  <input type="text" #employerCity="ngModel" [(ngModel)]="userService.selectedUser.employerCity" name="employerCity" placeholder="Employer City"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !employerCity.valid }">
+  <div *ngIf="signUpForm.submitted && employerCity.errors">
+    <label *ngIf="employerCity.errors.required" class="validation-message">This field is required.</label>
   </div>
-  <input type="text" #city="ngModel" [(ngModel)]="userService.selectedUser.city" name="city" placeholder="City"
-  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !city.valid }">
-  <div *ngIf="signUpForm.submitted && city.errors">
-    <label *ngIf="city.errors.required" class="validation-message">This field is required.</label>
+  <input type="text" #employerState="ngModel" [(ngModel)]="userService.selectedUser.employerState" name="employerState" placeholder="Employer State"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !employerState.valid }">
+  <div *ngIf="signUpForm.submitted && employerState.errors">
+    <label *ngIf="employerState.errors.required" class="validation-message">This field is required.</label>
   </div>
-  <input type="text" #phone="ngModel" [(ngModel)]="userService.selectedUser.phone" name="phone" placeholder="Phone"
-  minlength="10" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !phone.valid }">
-  <div *ngIf="signUpForm.submitted && phone.errors">
-    <label *ngIf="phone.errors.required" class="validation-message">This field is required.</label>
-    <label *ngIf="phone.errors.minlength" class="validation-message">Enter atleast 10 characters.</label>
+  <input type="text" #employerZIP="ngModel" [(ngModel)]="userService.selectedUser.employerZIP" name="employerZIP" placeholder="Employer ZIP"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !employerZIP.valid }">
+  <div *ngIf="signUpForm.submitted && employerZIP.errors">
+    <label *ngIf="employerZIP.errors.required" class="validation-message">This field is required.</label>
   </div>
-  <input type="submit" value="Sign Up">
+  <input type="text" #employerContact="ngModel" [(ngModel)]="userService.selectedUser.employerContact" name="employerContact" placeholder="Employer Contact"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !employerContact.valid }">
+  <div *ngIf="signUpForm.submitted && employerContact.errors">
+    <label *ngIf="employerContact.errors.required" class="validation-message">This field is required.</label>
+  </div>
+  <input type="text" #employerPhone="ngModel" [(ngModel)]="userService.selectedUser.employerPhone" name="employerPhone" placeholder="Contact Phone"
+  minlength="10" required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !employerPhone.valid }">
+  <div *ngIf="signUpForm.submitted && employerPhone.errors">
+    <label *ngIf="employerPhone.errors.required" class="validation-message">This field is required.</label>
+  </div>
+  <input type="text" #employerPositon="ngModel" [(ngModel)]="userService.selectedUser.employerPositon" name="employerPositon" placeholder="Positon"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !employerPositon.valid }">
+  <div *ngIf="signUpForm.submitted && employerPositon.errors">
+    <label *ngIf="employerPositon.errors.required" class="validation-message">This field is required.</label>
+  </div>
+  <input type="text" #employerStart="ngModel" [(ngModel)]="userService.selectedUser.employerStart" name="employerStart" placeholder="Start Date"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !employerStart.valid }">
+  <div *ngIf="signUpForm.submitted && employerStart.errors">
+    <label *ngIf="employerStart.errors.required" class="validation-message">This field is required.</label>
+  </div>
+  <input type="text" #employerEnd="ngModel" [(ngModel)]="userService.selectedUser.employerEnd" name="employerEnd" placeholder="End Date"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !employerEnd.valid }">
+  <div *ngIf="signUpForm.submitted && employerEnd.errors">
+    <label *ngIf="employerEnd.errors.required" class="validation-message">This field is required.</label>
+  </div>
+  <input type="text" #employerReason="ngModel" [(ngModel)]="userService.selectedUser.employerReason" name="employerReason" placeholder="Reason For Quitting"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !employerReason.valid }">
+  <div *ngIf="signUpForm.submitted && employerReason.errors">
+    <label *ngIf="employerReason.errors.required" class="validation-message">This field is required.</label>
+  </div>
+  <input type="submit" value="Add">
 </form>
-
 <!-- Success message -->
 <div class="success" *ngIf="showSucessMessage">
   Saved successfully
@@ -40,40 +66,6 @@
   {{serverErrorMessages}}
 </div>
 
-<table *ngIf="userDetails" class="table-fill">
-  <thead>
-    <tr>
-        <th colspan="2" class="text-center">User Profile</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <td>First Name</td>
-        <td>{{userDetails.fullName.split(' ')[0]}}</td>
-    </tr>
-    <tr>
-        <td>Last Name</td>
-        <td>{{userDetails.fullName.split(' ')[1]}}</td>
-    </tr>
-    <tr>
-      <td>Email</td>
-      <td>{{userDetails.email}}</td>
-    </tr>
-    <tr>
-      <td>City</td>
-      <td>{{userDetails.city}}</td>
-    </tr>
-    <tr>
-      <td>Phone</td>
-      <td>{{userDetails.phone}}</td>
-    </tr>
-    <tr>
-      <td colspan="2" class="text-center">
-        <input type="button" (click)="onLogOut()" value="Logout" />
-      </td>
-    </tr>
-  </tbody>
-</table>
 
 
 
@@ -83,7 +75,7 @@
       <mat-panel-title>
         Employment
       </mat-panel-title>
-      <mat-panel-description>
+   fullName   <mat-panel-description>
         Add your Employment
       </mat-panel-description>
     </mat-expansion-panel-header>

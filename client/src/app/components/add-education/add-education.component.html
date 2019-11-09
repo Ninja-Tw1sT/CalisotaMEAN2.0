@@ -1,4 +1,66 @@
-<p>add-education works!</p>
+<form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+  <input type="text" #schoolName="ngModel" [(ngModel)]="userService.selectedUser.schoolName" name="schoolName" placeholder="Scool Name"
+  required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolName.valid }">
+  <div *ngIf="signUpForm.submitted && !schoolName.valid">
+    <label class="validation-message">This field is required.</label>
+  </div>
+  <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" required>
+    <mat-button-toggle value="High School">High School</mat-button-toggle>
+    <mat-button-toggle value ="College">College</mat-button-toggle>
+    <mat-button-toggle value ="Business or Trade School">Business or Trade School</mat-button-toggle>
+    <mat-button-toggle value="Professional School">Professional School</mat-button-toggle>
+  </mat-button-toggle-group><br>
+  <input type="text" #schoolAddress="ngModel" [(ngModel)]="userService.selectedUser.schoolAddress" name="schoolAddress" placeholder="School Address"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolAddress.valid }">
+  <div *ngIf="signUpForm.submitted && schoolAddress.errors">
+    <label *ngIf="schoolAddress.errors.required" class="validation-message">This field is required.</label>
+  </div>
+  <input type="text" #schoolCity="ngModel" [(ngModel)]="userService.selectedUser.schoolCity" name="schoolCity" placeholder="School City"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolCity.valid }">
+  <div *ngIf="signUpForm.submitted && schoolCity.errors">
+    <label *ngIf="schoolCity.errors.required" class="validation-message">This field is required.</label>
+  </div>
+  <input type="text" #schoolState="ngModel" [(ngModel)]="userService.selectedUser.schoolState" name="schoolState" placeholder="School State"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolState.valid }">
+  <div *ngIf="signUpForm.submitted && schoolState.errors">
+    <label *ngIf="schoolState.errors.required" class="validation-message">This field is required.</label>
+  </div>
+  <input type="text" #schoolZIP="ngModel" [(ngModel)]="userService.selectedUser.schoolZIP" name="schoolZIP" placeholder="School ZIP"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolZIP.valid }">
+  <div *ngIf="signUpForm.submitted && schoolZIP.errors">
+    <label *ngIf="schoolZIP.errors.required" class="validation-message">This field is required.</label>
+  </div>
+  <input type="text" #schoolDegree="ngModel" [(ngModel)]="userService.selectedUser.schoolDegree" name="schoolDegree" placeholder="Degree"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolDegree.valid }">
+  <div *ngIf="signUpForm.submitted && schoolDegree.errors">
+    <label *ngIf="schoolDegree.errors.required" class="validation-message">This field is required.</label>
+  </div>
+  <input type="text" #schoolMajor="ngModel" [(ngModel)]="userService.selectedUser.schoolMajor" name="schoolMajor" placeholder="Major"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolMajor.valid }">
+  <div *ngIf="signUpForm.submitted && schoolMajor.errors">
+    <label *ngIf="schoolMajor.errors.required" class="validation-message">This field is required.</label>
+  </div>
+  <input type="text" #schoolYears="ngModel" [(ngModel)]="userService.selectedUser.schoolYears" name="schoolYears" placeholder="Years Completed"
+  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolYears.valid }">
+  <div *ngIf="signUpForm.submitted && schoolYears.errors">
+    <label *ngIf="schoolYears.errors.required" class="validation-message">This field is required.</label>
+  </div>
+  <input type="submit" value="ADD">
+</form>
+
+<!-- Success message -->
+<div class="success" *ngIf="showSucessMessage">
+  Saved successfully
+</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+  {{serverErrorMessages}}
+</div>
+
+
+
+<!--
 <body>
   <mat-accordion>
       <mat-expansion-panel>
@@ -125,3 +187,4 @@
 </div>
 </body>
 
+-->
