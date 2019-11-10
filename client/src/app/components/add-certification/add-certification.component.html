@@ -1,20 +1,29 @@
-<form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
-  <input type="text" #issuerName="ngModel" [(ngModel)]="userService.selectedUser.issuerName" name="issuerName" placeholder="Full Name"
-  required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !issuerName.valid }">
-  <div *ngIf="signUpForm.submitted && !issuerName.valid">
-    <label class="validation-message">This field is required.</label>
+<br><br><br><br><br>
+<form #signUpForm="ngForm" class="center" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+    <input type="text" #issuerName="ngModel" [(ngModel)]="userService.selectedUser.issuerName" name="issuerName" placeholder="Full Name"
+    required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !issuerName.valid }">
+    <div *ngIf="signUpForm.submitted && !issuerName.valid">
+      <label class="validation-message">This field is required.</label>
+    </div>
   </div>
-  <input type="text" #certification="ngModel" [(ngModel)]="userService.selectedUser.certification" name="certification" placeholder="certification"
-  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !certification.valid }">
-  <div *ngIf="signUpForm.submitted && certification.errors">
-    <label *ngIf="certification.errors.required" class="validation-message">This field is required.</label>
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+    <input type="text" #certification="ngModel" [(ngModel)]="userService.selectedUser.certification" name="certification" placeholder="certification"
+    required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !certification.valid }">
+    <div *ngIf="signUpForm.submitted && certification.errors">
+      <label *ngIf="certification.errors.required" class="validation-message">This field is required.</label>
+    </div>
   </div>
-  <input type="text" #certificationID="ngModel" [(ngModel)]="userService.selectedUser.certificationID" name="certificationID" placeholder="certificationID"
-  required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !certificationID.valid }">
-  <div *ngIf="signUpForm.submitted && certificationID.errors">
-    <label *ngIf="certificationID.errors.required" class="validation-message">This field is required.</label>
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+    <input type="text" #certificationID="ngModel" [(ngModel)]="userService.selectedUser.certificationID" name="certificationID" placeholder="certificationID"
+    required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !certificationID.valid }">
+    <div *ngIf="signUpForm.submitted && certificationID.errors">
+      <label *ngIf="certificationID.errors.required" class="validation-message">This field is required.</label>
+    </div><br>
   </div>
-  <input type="submit" value="Add">
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+    <input type="submit" value="Add" class="center">
+  </div>
 </form>
 
 <!-- Success message -->

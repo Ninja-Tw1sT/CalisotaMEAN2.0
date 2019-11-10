@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormControl } from '@angular/forms';
+import { MatInputModule } from '@angular/material';
+
 import { NgForm } from '@angular/forms';
 import { UserService } from '../../shared/user.service';
 import { Router } from '@angular/router';
