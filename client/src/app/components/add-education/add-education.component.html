@@ -1,13 +1,13 @@
 <br><br><br><br>
 <form #signUpForm="ngForm" class="center" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
-  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">
     <input type="text" #schoolName="ngModel" [(ngModel)]="userService.selectedUser.schoolName" name="schoolName" placeholder="Scool Name"
     required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolName.valid }">
     <div *ngIf="signUpForm.submitted && !schoolName.valid">
      <label class="validation-message">This field is required.</label>
     </div><br>
   </div>
-  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">
       <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" required>
       <mat-button-toggle value="High School">High School</mat-button-toggle>
       <mat-button-toggle value ="College">College</mat-button-toggle>
@@ -15,7 +15,7 @@
       <mat-button-toggle value="Professional School">Professional School</mat-button-toggle>
     </mat-button-toggle-group><br>
   </div>
-  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">
     <input type="text" #schoolAddress="ngModel" [(ngModel)]="userService.selectedUser.schoolAddress" name="schoolAddress" placeholder="School Address"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolAddress.valid }">
     <div *ngIf="signUpForm.submitted && schoolAddress.errors">
@@ -37,7 +37,7 @@
       <label *ngIf="schoolZIP.errors.required" class="validation-message">This field is required.</label>
     </div>
   </div>
-  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">
     <input type="text" #schoolDegree="ngModel" [(ngModel)]="userService.selectedUser.schoolDegree" name="schoolDegree" placeholder="Degree"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolDegree.valid }">
     <div *ngIf="signUpForm.submitted && schoolDegree.errors">
@@ -54,7 +54,7 @@
       <label *ngIf="schoolYears.errors.required" class="validation-message">This field is required.</label>
     </div>
   </div>
-  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">
       <input type="submit" value="ADD">
   </div>
 </form>

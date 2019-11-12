@@ -1,27 +1,27 @@
 <br><br><br><br><br>
 <form #signUpForm="ngForm" class="center" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
-  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">
     <input type="text" #issuerName="ngModel" [(ngModel)]="userService.selectedUser.issuerName" name="issuerName" placeholder="Full Name"
     required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !issuerName.valid }">
     <div *ngIf="signUpForm.submitted && !issuerName.valid">
       <label class="validation-message">This field is required.</label>
     </div>
   </div>
-  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">
     <input type="text" #certification="ngModel" [(ngModel)]="userService.selectedUser.certification" name="certification" placeholder="certification"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !certification.valid }">
     <div *ngIf="signUpForm.submitted && certification.errors">
       <label *ngIf="certification.errors.required" class="validation-message">This field is required.</label>
     </div>
   </div>
-  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">
     <input type="text" #certificationID="ngModel" [(ngModel)]="userService.selectedUser.certificationID" name="certificationID" placeholder="certificationID"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !certificationID.valid }">
     <div *ngIf="signUpForm.submitted && certificationID.errors">
       <label *ngIf="certificationID.errors.required" class="validation-message">This field is required.</label>
     </div><br>
   </div>
-  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">
     <input type="submit" value="Add" class="center">
   </div>
 </form>
@@ -79,7 +79,82 @@
                                 <thead>
                                   <tr>
                                     <th>Issuer Name</th>
-                                    <th>Certification</th>
+                              .navbar {
+  color: rgb(255, 145, 0);
+  background-color: #02309c;
+  justify-content: space-between;
+}
+
+span {
+  padding-right: 1rem;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mat-expansion-panel-header-description {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.mat-expansion-panel {
+  text-align: center;
+  background-color: #fff;
+}
+
+
+.mat-card-title {
+  color: orange;
+  text-align: center;
+}
+.mat-button, .mat-stroked-button {
+  background-color:#0c2152;
+  color: #fff;
+}
+
+.mat-button-toggle-group {
+  background-color: blue;
+  color: blue;
+}
+/*
+.mat-panel-title {
+  justify-content: center !important;
+}
+
+.headers-align .mat-expansion-panel-header-title,
+.headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+*/
+
+
+.form {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: rgb(206, 83, 12);
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.container {
+  background-color: coral;
+}
+      <th>Certification</th>
                                     <th></th>
                                   </tr>
                                 </thead>
@@ -90,7 +165,382 @@
                                       <a class="action-btn" (click)="onEdit(emp)">
                                         <i class="material-icons">edit</i>
                                       </a>
-                                      <a class="action-btn" (click)="onDelete(emp._id,employeeForm)">
+                                      .navbar {
+  color: rgb(255, 145, 0);
+  background-color: #02309c;
+  justify-content: space-between;
+}
+
+span {
+  padding-right: 1rem;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mat-expansion-panel-header-description {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.mat-expansion-panel {
+  text-align: center;
+  background-color: #fff;
+}
+
+
+.mat-card-title {
+  color: orange;
+  text-align: center;
+}
+.mat-button, .mat-stroked-button {
+  background-color:#0c2152;
+  color: #fff;
+}
+
+.mat-button-toggle-group {
+  background-color: blue;
+  color: blue;
+}
+/*
+.mat-panel-title {
+  justify-content: center !important;
+}
+
+.headers-align .mat-expansion-panel-header-title,
+.headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+*/
+
+
+.form {
+  -webkit-border-radius: 10px 10px 10p.navbar {
+  color: rgb(255, 145, 0);
+  background-color: #02309c;
+  justify-content: space-between;
+}
+
+span {
+  padding-right: 1rem;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mat-expansion-panel-header-description {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.mat-expansion-panel {
+  text-align: center;
+  background-color: #fff;
+}
+
+
+.mat-card-title {
+  color: orange;
+  text-align: center;
+}
+.mat-button, .mat-stroked-button {
+  background-color:#0c2152;
+  color: #fff;
+}
+
+.mat-button-toggle-group {
+  background-color: blue;
+  color: blue;
+}
+/*
+.mat-panel-title {
+  justify-content: center !important;
+}
+
+.headers-align .mat-expansion-panel-header-title,
+.headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.headers-align .mat-expansion-panel-header-description {
+  .navbar {
+  color: rgb(255, 145, 0);
+  background-color: #02309c;
+  justify-content: space-between;
+}
+
+span {
+  padding-right: 1rem;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mat-expansion-panel-header-description {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.mat-expansion-panel {
+  text-align: center;
+  background-color: #fff;
+}
+
+
+.mat-card-title {
+  color: orange;
+  text-align: center;
+}
+.mat-button, .mat-stroked-button {
+  background-color:#0c2152;
+  color: #fff;
+}
+
+.mat-button-toggle-group {
+  background-color: blue;
+  color: blue;
+}
+/*
+.mat-panel-title {
+  justify-content: center !important;
+}
+
+.headers-align .mat-expansion-panel-header-title,
+.headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+*/
+
+
+.form {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: rgb(206, 83, 12);
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.container {
+  background-color: coral;
+}
+
+  .navbar {
+  color: rgb(255, 145, 0);
+  background-color: #02309c;
+  justify-content: space-between;
+}
+
+span {
+  padding-right: 1rem;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mat-expansion-panel-header-description {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.mat-expansion-panel {
+  text-align: center;
+  background-color: #fff;
+}
+
+
+.mat-card-title {
+  color: orange;
+  text-align: center;
+}
+.mat-button, .mat-stroked-button {
+  background-color:#0c2152;
+  color: #fff;
+}
+
+.mat-button-toggle-group {
+  background-color: blue;
+  color: blue;
+}
+/*
+.mat-panel-title {
+  justify-content: center !important;
+}
+
+.headers-align .mat-expansion-panel-header-title,
+.headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+*/
+
+
+.form {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: rgb(206, 83, 12);
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.container {
+  background-color: coral;
+}
+
+}
+*/.navbar {
+  color: rgb(255, 145, 0);
+  background-color: #02309c;
+  justify-content: space-between;
+}
+
+span {
+  padding-right: 1rem;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mat-expansion-panel-header-description {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.mat-expansion-panel {
+  text-align: center;
+  background-color: #fff;
+}
+
+
+.mat-card-title {
+  color: orange;
+  text-align: center;
+}
+.mat-button, .mat-stroked-button {
+  background-color:#0c2152;
+  color: #fff;
+}
+
+.mat-button-toggle-group {
+  background-color: blue;
+  color: blue;
+}
+/*
+.mat-panel-title {
+  justify-content: center !important;
+}
+
+.headers-align .mat-expansion-panel-header-title,
+.headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+*/
+
+
+.form {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: rgb(206, 83, 12);
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.container {
+  background-color: coral;
+}
+
+
+
+.form {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: rgb(206, 83, 12);
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.container {
+  background-color: coral;
+}
+x 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: rgb(206, 83, 12);
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.container {
+  background-color: coral;
+}
+<a class="action-btn" (click)="onDelete(emp._id,employeeForm)">
                                         <i class="material-icons">delete</i>
                                       </a>
                                     </td>
