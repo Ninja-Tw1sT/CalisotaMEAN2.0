@@ -13,16 +13,16 @@ router.post('/authenticate', ctrlUser.authenticate);
 router.get('/userProfile',jwtHelper.verifyJwtToken, ctrlUser.userProfile);
 
 // certificates
-router.post('/certificates', ctrlCertificates.addCertificate);
-router.get('/certificates', ctrlCertificates.getCertificates);
+router.post('/certificates',jwtHelper.verifyJwtToken, ctrlCertificates.addCertificate);
+router.get('/certificates',jwtHelper.verifyJwtToken, ctrlCertificates.getCertificates);
 
 // employments
-router.post('/employments', ctrlEmployments.addEmployment);
-router.get('/employments', ctrlEmployments.getEmployments);
+router.post('/employments',jwtHelper.verifyJwtToken, ctrlEmployments.addEmployment);
+router.get('/employments',jwtHelper.verifyJwtToken, ctrlEmployments.getEmployments);
 
 // schools
-router.post('/schools', ctrlSchools.addSchools);
-router.get('/schools', ctrlSchools.getSchools);
+router.post('/schools',jwtHelper.verifyJwtToken, ctrlSchools.addSchools);
+router.get('/schools', jwtHelper.verifyJwtToken, ctrlSchools.getSchools);
 
 module.exports = router;
 
