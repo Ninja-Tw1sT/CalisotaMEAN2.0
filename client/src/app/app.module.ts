@@ -1,7 +1,7 @@
 //built-in
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
@@ -27,6 +27,9 @@ import { AddEducationComponent } from './components/add-education/add-education.
 import { AddCertificationComponent } from './components/add-certification/add-certification.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { GamecardComponent } from './components/gamecard/gamecard.component';
+import { CertificateService } from './shared/certificates.service';
+import { SchoolsService } from './shared/schools.service';
+import { EmployeeService } from './shared/employee.service';
 
 
 @NgModule({
@@ -47,6 +50,7 @@ import { GamecardComponent } from './components/gamecard/gamecard.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     MaterialModule,
@@ -56,7 +60,13 @@ import { GamecardComponent } from './components/gamecard/gamecard.component';
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }, AuthGuard, UserService],
+  },
+  AuthGuard,
+  UserService,
+  CertificateService,
+  SchoolsService,
+  EmployeeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

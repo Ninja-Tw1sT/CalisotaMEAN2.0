@@ -5,29 +5,26 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { environment } from '../../environments/environment';
 
-import { Employee } from './employee.model';
 
 @Injectable()
-export class EmployeeService {
-  selectedEmployee: Employee;
-  employees: Employee[];
-  readonly baseURL =  environment.apiBaseUrl + '/employments';
+export class SchoolsService {
+  readonly baseURL =  environment.apiBaseUrl + '/schools';
 
   constructor(private http: HttpClient) { }
 
-  postEmployee(emp: any) {
-    return this.http.post(this.baseURL, emp);
+  postSchool(school: any) {
+    return this.http.post(this.baseURL, school);
   }
 
-  getEmployeeList() {
+  getSchoolsList() {
     return this.http.get(this.baseURL);
   }
 
-  putEmployee(emp: any) {
-    return this.http.put(this.baseURL + `/${emp._id}`, emp);
+  putSchool(school: any) {
+    return this.http.put(this.baseURL + `/${school._id}`, school);
   }
 
-  deleteEmployee(_id: string) {
+  deleteSchool(_id: string) {
     return this.http.delete(this.baseURL + `/${_id}`);
   }
 
