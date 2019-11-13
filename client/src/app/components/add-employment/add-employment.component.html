@@ -1,5 +1,6 @@
 
-<form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+<form #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)">
+  {{signUpForm.valid}}
   <br><br>
   <div class="center1" fxLayout="column" fxLayoutGap="32px">
     <br>
@@ -10,7 +11,7 @@
     </div>
   </div>
 
-  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">
     <input type="text" #employerAddress="ngModel" [(ngModel)]="userService.selectedUser.employerAddress" name="employerAddress" placeholder="Employer Address"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !employerAddress.valid }">
     <div *ngIf="signUpForm.submitted && employerAddress.errors">
@@ -32,7 +33,7 @@
       <label *ngIf="employerZIP.errors.required" class="validation-message">This field is required.</label>
     </div>
   </div>
-  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">
     <input type="text" #employerContact="ngModel" [(ngModel)]="userService.selectedUser.employerContact" name="employerContact" placeholder="Employer Contact"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !employerContact.valid }">
     <div *ngIf="signUpForm.submitted && employerContact.errors">
@@ -44,7 +45,7 @@
       <label *ngIf="employerPhone.errors.required" class="validation-message">This field is required.</label>
     </div>
   </div>
-  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">
       <input type="text" #employerPositon="ngModel" [(ngModel)]="userService.selectedUser.employerPositon" name="employerPositon" placeholder="Positon"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !employerPositon.valid }">
     <div *ngIf="signUpForm.submitted && employerPositon.errors">
@@ -61,14 +62,14 @@
       <label *ngIf="employerEnd.errors.required" class="validation-message">This field is required.</label>
     </div>
   </div>
-  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">
       <input type="text" #employerReason="ngModel" [(ngModel)]="userService.selectedUser.employerReason" name="employerReason" placeholder="Reason For Quitting"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !employerReason.valid }">
     <div *ngIf="signUpForm.submitted && employerReason.errors">
       <label *ngIf="employerReason.errors.required" class="validation-message">This field is required.</label>
     </div>
   </div>
-  <div class="center1" fxLayout="column" fxLayoutGap="32px">  
+  <div class="center1" fxLayout="column" fxLayoutGap="32px">
     <input type="submit" value="Add">
   </div>
 </form>
