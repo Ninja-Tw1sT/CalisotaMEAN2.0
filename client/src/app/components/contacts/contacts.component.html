@@ -8,22 +8,22 @@
     </div><br>
   </div>
   <div class="center1" fxLayout="column" fxLayoutGap="32px">
-    <input type="text" #contactAddress="ngModel" [(ngModel)]="userService.selectedUser.contactAddress" name="contactAddress" placeholder="contact Address"
+    <input type="text" #contactAddress="ngModel" [(ngModel)]="userService.selectedUser.contactAddress" name="contactAddress" placeholder="Address"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !contactAddress.valid }">
     <div *ngIf="signUpForm.submitted && contactAddress.errors">
       <label *ngIf="contactAddress.errors.required" class="validation-message">This field is required.</label>
     </div>
-    <input type="text" #contactCity="ngModel" [(ngModel)]="userService.selectedUser.contactCity" name="contactCity" placeholder="contact City"
+    <input type="text" #contactCity="ngModel" [(ngModel)]="userService.selectedUser.contactCity" name="contactCity" placeholder="City"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !contactCity.valid }">
     <div *ngIf="signUpForm.submitted && contactCity.errors">
       <label *ngIf="contactCity.errors.required" class="validation-message">This field is required.</label>
     </div>
-    <input type="text" #contactState="ngModel" [(ngModel)]="userService.selectedUser.contactState" name="contactState" placeholder="contact State"
+    <input type="text" #contactState="ngModel" [(ngModel)]="userService.selectedUser.contactState" name="contactState" placeholder="State"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !contactState.valid }">
     <div *ngIf="signUpForm.submitted && contactState.errors">
       <label *ngIf="contactState.errors.required" class="validation-message">This field is required.</label>
     </div>
-    <input type="text" #contactZIP="ngModel" [(ngModel)]="userService.selectedUser.contactZIP" name="contactZIP" placeholder="contact ZIP"
+    <input type="text" #contactZIP="ngModel" [(ngModel)]="userService.selectedUser.contactZIP" name="contactZIP" placeholder="ZIP"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !contactZIP.valid }">
     <div *ngIf="signUpForm.submitted && contactZIP.errors">
       <label *ngIf="contactZIP.errors.required" class="validation-message">This field is required.</label>
@@ -47,7 +47,7 @@
     </div>
   </div>
   <div class="center1" fxLayout="column" fxLayoutGap="32px">
-      <input type="submit" value="ADD">
+      <input type="submit" value="Add">
   </div>
 </form>
 
