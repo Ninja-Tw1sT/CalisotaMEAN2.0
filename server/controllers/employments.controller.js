@@ -17,6 +17,26 @@ const Employment = mongoose.model('Employment', {
 });
 
 let addEmployment = (req, res, next) => {
+  // return error if fields are missing
+  if (
+    !req.body.employerName
+    || !req.body.address
+    || !req.body.city
+    || !req.body.state
+    || !req.body.zip
+    || !req.body.supervisionContact
+    || !req.body.phone
+    || !req.body.position
+    || !req.body.startDate
+    || !req.body.endDate
+    || !req.body.reasonForQuiting
+  ) {
+    return res.status(400).send({
+      status: false,
+      message: 'Required field(s) are missing or empty.'
+    });
+  }
+
   var employment = new Employment();
   employment.userId = req._id;
   employment.employerName = req.body.employerName;

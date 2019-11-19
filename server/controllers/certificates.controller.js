@@ -10,6 +10,18 @@ const Certificate = mongoose.model('Certificate', {
 });
 
 let addCertificate = (req, res, next) => {
+  // return error if fields are missing
+  if (
+    !req.body.issuer
+    || !req.body.certification
+    || !req.body.certNumber
+  ) {
+    return res.status(400).send({
+      status: false,
+      message: 'Required field(s) are missing or empty.'
+    });
+  }
+
   var certificate = new Certificate();
   certificate.userId = req._id;
   certificate.issuer = req.body.issuer;

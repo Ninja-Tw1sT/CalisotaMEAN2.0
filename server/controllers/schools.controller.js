@@ -15,9 +15,26 @@ const Schools = mongoose.model('Schools', {
 });
 
 let addSchools = (req, res, next) => {
+  // return error if fields are missing
+  if (
+    !req.body.schoolName
+    || !req.body.schoolType
+    || !req.body.address
+    || !req.body.city
+    || !req.body.state
+    || !req.body.zip
+    || !req.body.degree
+    || !req.body.major
+    || !req.body.yearsCompleted
+  ) {
+    return res.status(400).send({
+      status: false,
+      message: 'Required field(s) are missing or empty.'
+    });
+  }
+
   var schools = new Schools();
   schools.userId = req._id;
-
   schools.schoolName = req.body.schoolName;
   schools.schoolType = req.body.schoolType;
   schools.address = req.body.address;
