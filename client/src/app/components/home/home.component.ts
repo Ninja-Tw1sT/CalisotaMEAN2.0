@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { UserService } from '../../shared/user.service';
@@ -38,6 +37,39 @@ export class HomeComponent implements OnInit {
     phone: ''
   };
 
+  certificationsColumns: string[] = ['issuer', 'certification', 'certNumber'];
+  certsDataSource: any[];
+
+  employerColumns: string[] = [
+    'employerName',
+    'address',
+    'city',
+    'state',
+    'zip',
+    'supervisionContact',
+    'phone',
+    'position',
+    'startDate',
+    'endDate',
+    'reasonForQuiting'
+  ];
+  employerDataSource: any[];
+
+  schoolsColumns: string[] = [
+    'schoolName',
+    'schoolType',
+    'address',
+    'city',
+    'state',
+    'zip',
+    'degree',
+    'major',
+    'yearsCompleted'
+  ];
+  schoolsDataSource: any[];
+
+  selectedSchollTypeVal: string;
+
   showCertificateForm: boolean;
   showSchoolsForm: boolean;
   showEmploymentsForm: boolean;
@@ -58,10 +90,17 @@ export class HomeComponent implements OnInit {
 
     // init reactive forms
     this.certificateForm = this.fb.group({
-      issuer: '',
-      certification: '',
-      certNumber: ''
+      issuer: ['', [
+        Validators.required
+      ]],
+      certification: ['', [
+        Validators.required
+      ]],
+      certNumber: ['', [
+        Validators.required
+      ]]
     });
+
     this.schoolsForm = this.fb.group({
       schoolName: '',
       schoolType: '',
@@ -112,13 +151,13 @@ export class HomeComponent implements OnInit {
       },
       err => {
         console.log("Error adding employer", err);
-        this.refreshEmploymentsList();
       }
     );
   }
 
   removeLastEmployer() {
     this.EmployerList.pop();
+    this.employerDataSource = this.EmployerList;
   }
 
   addNewSchool() {
@@ -130,13 +169,13 @@ export class HomeComponent implements OnInit {
       },
       err => {
         console.log("Error adding school", err);
-        this.refreshSchoolsList();
       }
     );
   }
 
   removeLastSchool() {
     this.SchoolList.pop();
+    this.schoolsDataSource = this.SchoolList;
   }
 
   toggleCertificationForm() {
@@ -167,7 +206,6 @@ export class HomeComponent implements OnInit {
       },
       err => {
         console.log("Error adding certificate", err);
-        this.toggleCertificationForm();
       }
     );
   }
@@ -177,6 +215,7 @@ export class HomeComponent implements OnInit {
       .subscribe(
         (res: any) => {
           this.CertificationList = res.certificates;
+          this.certsDataSource = this.CertificationList;
         },
         err => {
           console.log('Error getting certificates', err);
@@ -189,6 +228,7 @@ export class HomeComponent implements OnInit {
       .subscribe(
         (res: any) => {
           this.SchoolList = res.schools;
+          this.schoolsDataSource = this.SchoolList;
         },
         err => {
           console.log('Error getting schools', err);
@@ -201,6 +241,7 @@ export class HomeComponent implements OnInit {
     .subscribe(
       (res: any) => {
         this.EmployerList = res.employments;
+        this.employerDataSource = this.EmployerList;
       },
       err => {
         console.log('Error getting employments', err);
@@ -210,6 +251,7 @@ export class HomeComponent implements OnInit {
 
   removeLastCertification() {
     this.CertificationList.pop();
+    this.certsDataSource = this.CertificationList;
   }
 
   onSubmit(form: NgForm) {

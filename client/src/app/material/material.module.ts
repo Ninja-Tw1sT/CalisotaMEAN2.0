@@ -10,7 +10,8 @@ import {
   MatListModule,
   MatCardModule,
   MatExpansionModule,
-
+  MatGridListModule,
+  MatTableModule
 
 
 
@@ -27,7 +28,9 @@ const Material =[
   MatSidenavModule,
   MatListModule,
   MatCardModule,
+  MatGridListModule,
   MatExpansionModule,
+  MatTableModule
 ];
 
 @NgModule({

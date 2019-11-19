@@ -53,6 +53,48 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
 
+          <table *ngIf="SchoolList && SchoolList.length" style="width: 100%" mat-table [dataSource]="schoolsDataSource">
+            <ng-container matColumnDef="schoolName">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> School Name </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.schoolName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="schoolType">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> School Type </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.schoolType}} </td>
+            </ng-container>
+            <ng-container matColumnDef="address">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Address </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.address}} </td>
+            </ng-container>
+            <ng-container matColumnDef="city">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> City </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.city}} </td>
+            </ng-container>
+            <ng-container matColumnDef="state">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> State </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.state}} </td>
+            </ng-container>
+            <ng-container matColumnDef="zip">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Zip </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.zip}} </td>
+            </ng-container>
+            <ng-container matColumnDef="degree">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Degree </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.degree}} </td>
+            </ng-container>
+            <ng-container matColumnDef="major">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Major </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.major}} </td>
+            </ng-container>
+            <ng-container matColumnDef="yearsCompleted">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Years Completed </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.yearsCompleted}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="schoolsColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: schoolsColumns;"></tr>
+          </table>
+
           <form *ngIf="showSchoolsForm" [formGroup]="schoolsForm">
               <div>
                 <div style="border:1px solid blue; text-align:center; padding:10px; margin:5px;">
@@ -65,7 +107,7 @@
                         <mat-button-toggle value ="College">College</mat-button-toggle>
                         <mat-button-toggle value ="Business or Trade School">Business or Trade School</mat-button-toggle>
                         <mat-button-toggle value="Professional School">Professional School</mat-button-toggle>
-                      </mat-button-toggle-group><br>{{toggleGroup.value}}<br>
+                      </mat-button-toggle-group><br>{{toggleGroup.value || '* Please select a school type'}}<br>
                     <mat-form-field>
                       <input matInput placeholder="Address" formControlName="address" required>
                     </mat-form-field>
@@ -109,6 +151,56 @@
                 Add your Employment
               </mat-panel-description>
             </mat-expansion-panel-header>
+
+            <table *ngIf="EmployerList && EmployerList.length" style="width: 100%" mat-table [dataSource]="employerDataSource">
+              <ng-container matColumnDef="employerName">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Employer Name </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.employerName}} </td>
+              </ng-container>
+              <ng-container matColumnDef="address">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Address </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.address}} </td>
+              </ng-container>
+              <ng-container matColumnDef="city">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> City </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.city}} </td>
+              </ng-container>
+              <ng-container matColumnDef="state">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> State </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.state}} </td>
+              </ng-container>
+              <ng-container matColumnDef="zip">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Zip </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.zip}} </td>
+              </ng-container>
+              <ng-container matColumnDef="supervisionContact">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Supervision contact </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.supervisionContact}} </td>
+              </ng-container>
+              <ng-container matColumnDef="phone">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Phone </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.phone}} </td>
+              </ng-container>
+              <ng-container matColumnDef="position">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Position </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.position}} </td>
+              </ng-container>
+              <ng-container matColumnDef="startDate">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Start Date </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.startDate}} </td>
+              </ng-container>
+              <ng-container matColumnDef="endDate">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> EndDate </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.endDate}} </td>
+              </ng-container>
+              <ng-container matColumnDef="reasonForQuiting">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Reason For Quiting </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.reasonForQuiting}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="employerColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: employerColumns;"></tr>
+            </table>
 
             <form *ngIf="showEmploymentsForm" [formGroup]="employmentsForm">
               <div>
@@ -166,7 +258,25 @@
                   Add your Certifications
                 </mat-panel-description>
               </mat-expansion-panel-header>
-              <!-- *ngFor="let certificate of CertificationList" TODO: add certificates here -->
+
+              <table *ngIf="CertificationList && CertificationList.length" style="width: 100%" mat-table [dataSource]="certsDataSource">
+                  <ng-container matColumnDef="issuer">
+                    <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Issuer / Authority </th>
+                    <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.issuer}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="certification">
+                    <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Certification </th>
+                    <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.certification}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="certNumber">
+                    <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Certification Number / ID </th>
+                    <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.certNumber}} </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="certificationsColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: certificationsColumns;"></tr>
+                </table>
+
               <form *ngIf="showCertificateForm" [formGroup]="certificateForm">
                   <div>
                     <div style="border:1px solid blue; text-align:center; padding:10px; margin:5px;">
@@ -183,6 +293,7 @@
                     </div>
                   </div>
               </form>
+              <br>
               <button mat-stroked-button color="primary" (click)="toggleCertificationForm()"><b> Add New Certification</b></button>
               &nbsp;&nbsp;
               <button mat-raised-button color="warn" (click)="removeLastCertification()"><b>Remove Last Certification</b></button>
