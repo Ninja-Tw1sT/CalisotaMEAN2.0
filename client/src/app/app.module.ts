@@ -24,11 +24,11 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { AddEmploymentComponent } from './components/add-employment/add-employment.component';
 import { AddEducationComponent } from './components/add-education/add-education.component';
 import { AddCertificationComponent } from './components/add-certification/add-certification.component';
-import { ContactsComponent } from './components/contacts/contacts.component';
 import { GamecardComponent } from './components/gamecard/gamecard.component';
 import { CertificateService } from './shared/certificates.service';
 import { SchoolsService } from './shared/schools.service';
 import { EmployeeService } from './shared/employee.service';
+import { ReferralsComponent } from './referrals/referrals.component';
 
 
 @NgModule({
@@ -41,8 +41,8 @@ import { EmployeeService } from './shared/employee.service';
     AddEducationComponent,
     AddCertificationComponent,
     AddEmploymentComponent,
-    ContactsComponent,
-    GamecardComponent
+    GamecardComponent,
+    ReferralsComponent
   ],
   imports: [
     BrowserModule,
