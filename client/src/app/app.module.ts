@@ -1,4 +1,4 @@
-//built-in
+// built-in
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -6,18 +6,18 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
 
-//components
+// components
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 
-//routes
+// routes
 import { AppRoutingModule, routes } from './app-routing.module';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserService } from './shared/user.service';
 import { HomeComponent } from './components/home/home.component';
 
-//other
+// other
 import { AuthGuard } from './auth/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './auth/auth.interceptor';
@@ -28,7 +28,7 @@ import { GamecardComponent } from './components/gamecard/gamecard.component';
 import { CertificateService } from './shared/certificates.service';
 import { SchoolsService } from './shared/schools.service';
 import { EmployeeService } from './shared/employee.service';
-import { ReferralsComponent } from './referrals/referrals.component';
+import { ReferralsComponent } from './components/referrals/referrals.component';
 
 
 @NgModule({
