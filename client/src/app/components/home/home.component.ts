@@ -30,7 +30,8 @@ export class HomeComponent implements OnInit {
     showSucessMessage: boolean;
     serverErrorMessages: string;
   model = {
-    fullName: '',
+    firstName: '',
+    lastNmae: '',
     email: '',
     password: '',
     city: '',
@@ -272,7 +273,8 @@ export class HomeComponent implements OnInit {
   }
   resetForm(form: NgForm) {
     this.userService.selectedUser = {
-      fullName: '',
+      firstName: '',
+      lastName: '',
       email: '',
       password: '',
       city: '',

@@ -9,7 +9,8 @@ import { User } from './user.model';
 })
 export class UserService {
   selectedUser: User = {
-    fullName: '',
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
     city: '',

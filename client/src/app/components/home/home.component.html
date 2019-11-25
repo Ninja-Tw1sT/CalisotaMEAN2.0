@@ -3,10 +3,10 @@
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Your Résumé
+            Your Profile
           </mat-panel-title>
           <mat-panel-description>
-            View Your Résumé
+            View Your Profile
           </mat-panel-description>
         </mat-expansion-panel-header>
         <table *ngIf="userDetails" class="table-fill">
@@ -18,11 +18,11 @@
             <tbody>
               <tr>
                   <td>First Name</td>
-                  <td>{{userDetails.fullName.split(' ')[0]}}</td>
+                  <td>{{userDetails.firstName}}</td>
               </tr>
               <tr>
                   <td>Last Name</td>
-                  <td>{{userDetails.fullName.split(' ')[1]}}</td>
+                  <td>{{userDetails.lastName}}</td>
               </tr>
               <tr>
                 <td>Email</td>
@@ -49,7 +49,7 @@
               Education
             </mat-panel-title>
             <mat-panel-description>
-              Add Your Education
+              Add/View Your Education
             </mat-panel-description>
           </mat-expansion-panel-header>
 
@@ -140,7 +140,7 @@
         </mat-expansion-panel>
 
 
-        <!--       E  M  P  L  O  Y  M  E  N  T                         -->
+        <!--       E  M  P  L  O  Y  M  E  N  T        -->
 
         <mat-expansion-panel>
           <mat-expansion-panel-header>
@@ -148,7 +148,7 @@
                 Employment
               </mat-panel-title>
               <mat-panel-description>
-                Add your Employment
+                Add/View Your Employment
               </mat-panel-description>
             </mat-expansion-panel-header>
 
@@ -245,17 +245,19 @@
             </form>
             <br>
             <button mat-stroked-button color="primary" (click)="toggleEmploymentsForm()" class="center-align" style="justify-content: center"><b> Add New Employer</b></button>&nbsp;&nbsp;<button mat-raised-button color="warn" (click)="removeLastEmployer()"><b>Remove Last Employer</b></button>
-
-
           </mat-expansion-panel>
 
-        <mat-expansion-panel>
+
+          <!--    C   E   R   T   I   F  I  C  A  T  I  O  N  S   -->
+
+
+          <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>
                   Certifications
                 </mat-panel-title>
                 <mat-panel-description>
-                  Add your Certifications
+                  Add/View Your Certifications
                 </mat-panel-description>
               </mat-expansion-panel-header>
 
@@ -298,15 +300,27 @@
               &nbsp;&nbsp;
               <button mat-raised-button color="warn" (click)="removeLastCertification()"><b>Remove Last Certification</b></button>
           </mat-expansion-panel>
-    </mat-accordion>
+
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Documents
+                </mat-panel-title>
+                <mat-panel-description>
+                  Add/View Your Documents
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+            </mat-expansion-panel>
+  </mat-accordion>
     &nbsp;
     <br>
     <span md-colors="{color:'primary'}">
         <mat-card-title>
-            Welcome to the Calisota App!
+            <h1>Welcome to the Calisota App!</h1>
         </mat-card-title><br><br>
         <mat-card-content>
-        <button mat-stroked-button color="primary" style="margin-right:5px;">Submit</button>
+        
         </mat-card-content>
       </span>
 
