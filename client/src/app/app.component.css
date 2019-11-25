@@ -38,11 +38,6 @@ body {
   align-items: center;
 }
 
-.mat-expansion-panel {
-  text-align: center;
-  background-color: #fff;
-}
-
 
 .mat-card-title {
   color: orange;
