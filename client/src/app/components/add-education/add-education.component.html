@@ -4,54 +4,57 @@
     <input type="text" #schoolName="ngModel" [(ngModel)]="userService.selectedUser.schoolName" name="schoolName" placeholder="Scool Name"
     required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolName.valid }">
     <div *ngIf="signUpForm.submitted && !schoolName.valid">
-     <label class="validation-message">This field is required.</label>
+     <label style="color: #fff;" class="validation-message">* field required.</label>
     </div><br>
   </div>
   <div class="center1" fxLayout="column" fxLayoutGap="32px">
-      <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" required>
+      <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" name="schoolType" [(ngModel)]="userService.selectedUser.schoolType" required>
       <mat-button-toggle value="High School">High School</mat-button-toggle>
       <mat-button-toggle value ="College">College</mat-button-toggle>
       <mat-button-toggle value ="Business or Trade School">Business or Trade School</mat-button-toggle>
       <mat-button-toggle value="Professional School">Professional School</mat-button-toggle>
     </mat-button-toggle-group><br>
+    <div *ngIf="signUpForm.submitted && !userService.selectedUser.schoolType">
+      <label style="color: #fff;" class="validation-message">* field required.</label>
+    </div><br>
   </div>
   <div class="center1" fxLayout="column" fxLayoutGap="32px">
     <input type="text" #schoolAddress="ngModel" [(ngModel)]="userService.selectedUser.schoolAddress" name="schoolAddress" placeholder="School Address"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolAddress.valid }">
     <div *ngIf="signUpForm.submitted && schoolAddress.errors">
-      <label *ngIf="schoolAddress.errors.required" class="validation-message">This field is required.</label>
+      <label style="color: #fff;" *ngIf="schoolAddress.errors.required" class="validation-message">* field required.</label>
     </div>
     <input type="text" #schoolCity="ngModel" [(ngModel)]="userService.selectedUser.schoolCity" name="schoolCity" placeholder="School City"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolCity.valid }">
     <div *ngIf="signUpForm.submitted && schoolCity.errors">
-      <label *ngIf="schoolCity.errors.required" class="validation-message">This field is required.</label>
+      <label style="color: #fff;" *ngIf="schoolCity.errors.required" class="validation-message">* field required.</label>
     </div>
     <input type="text" #schoolState="ngModel" [(ngModel)]="userService.selectedUser.schoolState" name="schoolState" placeholder="School State"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolState.valid }">
     <div *ngIf="signUpForm.submitted && schoolState.errors">
-      <label *ngIf="schoolState.errors.required" class="validation-message">This field is required.</label>
+      <label style="color: #fff;" *ngIf="schoolState.errors.required" class="validation-message">* field required.</label>
     </div>
     <input type="text" #schoolZIP="ngModel" [(ngModel)]="userService.selectedUser.schoolZIP" name="schoolZIP" placeholder="School ZIP"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolZIP.valid }">
     <div *ngIf="signUpForm.submitted && schoolZIP.errors">
-      <label *ngIf="schoolZIP.errors.required" class="validation-message">This field is required.</label>
+      <label style="color: #fff;" *ngIf="schoolZIP.errors.required" class="validation-message">* field required.</label>
     </div>
   </div>
   <div class="center1" fxLayout="column" fxLayoutGap="32px">
     <input type="text" #schoolDegree="ngModel" [(ngModel)]="userService.selectedUser.schoolDegree" name="schoolDegree" placeholder="Degree"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolDegree.valid }">
     <div *ngIf="signUpForm.submitted && schoolDegree.errors">
-      <label *ngIf="schoolDegree.errors.required" class="validation-message">This field is required.</label>
+      <label style="color: #fff;" *ngIf="schoolDegree.errors.required" class="validation-message">* field required.</label>
     </div>
     <input type="text" #schoolMajor="ngModel" [(ngModel)]="userService.selectedUser.schoolMajor" name="schoolMajor" placeholder="Major"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolMajor.valid }">
     <div *ngIf="signUpForm.submitted && schoolMajor.errors">
-      <label *ngIf="schoolMajor.errors.required" class="validation-message">This field is required.</label>
+      <label style="color: #fff;" *ngIf="schoolMajor.errors.required" class="validation-message">* field required.</label>
     </div>
     <input type="text" #schoolYears="ngModel" [(ngModel)]="userService.selectedUser.schoolYears" name="schoolYears" placeholder="Years Completed"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolYears.valid }">
     <div *ngIf="signUpForm.submitted && schoolYears.errors">
-      <label *ngIf="schoolYears.errors.required" class="validation-message">This field is required.</label>
+      <label style="color: #fff;" *ngIf="schoolYears.errors.required" class="validation-message">* field required.</label>
     </div>
   </div>
   <div class="center1" fxLayout="column" fxLayoutGap="32px">
@@ -86,8 +89,8 @@
                             <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
                             <div class="row">
                               <div class="input-field col s12">
-                                <label>School Name :
-                                  <label class="red-text">*</label>
+                                <label style="color: #fff;">School Name :
+                                  <label style="color: #fff;" class="red-text">*</label>
                                 </label>
                                 <input type="text" name="schoolName" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.schoolName" placeholder="Enter School Name" required>
                               </div>
@@ -95,31 +98,31 @@
 
                             <div class="row">
                               <div class="input-field col s12">
-                                  <label>School Address :</label>
-                                  <label class="red-text">*</label>
+                                  <label style="color: #fff;">School Address :</label>
+                                  <label style="color: #fff;" class="red-text">*</label>
                                   >                   <input type="text" name="schoolAddress" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.schoolAddress" placeholder="School Address" required>
                               </div>
                             </div>
                             <div class="row">
                               <div class="input-field col s12">
-                                <label>School City :
-                                  <label class="red-text">*</label>
+                                <label style="color: #fff;">School City :
+                                  <label style="color: #fff;" class="red-text">*</label>
                                 </label>
                                 <input type="text" name="schoolCity" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.schoolCity" placeholder="Enter School City" required>
                               </div>
                             </div>
                             <div class="row">
                               <div class="input-field col s12">
-                                <label>School State :
-                                  <label class="red-text">*</label>
+                                <label style="color: #fff;">School State :
+                                  <label style="color: #fff;" class="red-text">*</label>
                                 </label>
                                 <input type="text" name="schoolState" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.schoolState" placeholder="Enter School State" required>
                               </div>
                             </div>
                             <div class="row">
                               <div class="input-field col s12">
-                                <label>School ZIP :
-                                  <label class="red-text">*</label>
+                                <label style="color: #fff;">School ZIP :
+                                  <label style="color: #fff;" class="red-text">*</label>
                                 </label>
                                 <input type="text" name="schoolZIP" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.schoolZIP" placeholder="Enter School ZIP" required>
                               </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { UserService } from '../../shared/user.service';
+import { EmployeeService } from 'src/app/shared/employee.service';
 
 @Component({
   selector: 'app-add-employment',
@@ -14,13 +15,26 @@ export class AddEmploymentComponent implements OnInit {
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private employeeService: EmployeeService) { }
 
   ngOnInit() {
   }
 
   onSubmit(form: NgForm) {
-    this.userService.postUser(form.value).subscribe(
+    const employer = {
+      employerName: form.value.employerName,
+      address: form.value.employerAddress,
+      city: form.value.employerCity,
+      state: form.value.employerState,
+      zip: form.value.employerZIP,
+      supervisionContact: form.value.employerContact,
+      phone: form.value.employerPhone,
+      position: form.value.employerPositon,
+      startDate: form.value.employerStart,
+      endDate: form.value.employerEnd,
+      reasonForQuiting: form.value.employerReason
+    };
+    this.employeeService.postEmployee(employer).subscribe(
       res => {
         this.showSucessMessage = true;
         setTimeout(() => this.showSucessMessage = false, 4000);
@@ -29,9 +43,9 @@ export class AddEmploymentComponent implements OnInit {
       err => {
         if (err.status === 422) {
           this.serverErrorMessages = err.error.join('<br/>');
-        }
-        else
+        } else {
           this.serverErrorMessages = 'Something went wrong.Please contact admin.';
+        }
       }
     );
   }

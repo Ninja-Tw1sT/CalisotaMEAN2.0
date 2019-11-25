@@ -5,7 +5,7 @@ import { MatInputModule } from '@angular/material';
 
 import { NgForm } from '@angular/forms';
 import { UserService } from '../../shared/user.service';
-import { Router } from '@angular/router';
+import { CertificateService } from 'src/app/shared/certificates.service';
 
 @Component({
   selector: 'app-add-certification',
@@ -17,13 +17,18 @@ export class AddCertificationComponent implements OnInit {
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private certService: CertificateService) { }
 
   ngOnInit() {
   }
 
   onSubmit(form: NgForm) {
-    this.userService.postUser(form.value).subscribe(
+    const certificate = {
+      issuer: form.value.issuerName,
+      certification: form.value.certification,
+      certNumber: form.value.certificationID
+    };
+    this.certService.postCertificate(certificate).subscribe(
       res => {
         this.showSucessMessage = true;
         setTimeout(() => this.showSucessMessage = false, 4000);
@@ -32,9 +37,9 @@ export class AddCertificationComponent implements OnInit {
       err => {
         if (err.status === 422) {
           this.serverErrorMessages = err.error.join('<br/>');
-        }
-        else
+        } else {
           this.serverErrorMessages = 'Something went wrong.Please contact admin.';
+        }
       }
     );
   }

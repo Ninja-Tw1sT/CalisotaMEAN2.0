@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { NgForm } from '@angular/forms';
-import { UserService } from '../../shared/user.service';
+import { FormControl, NgForm, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
+import { UserService } from '../../shared/user.service';
+import { CertificateService } from '../../shared/certificates.service';
+import { SchoolsService } from '../../shared/schools.service';
+import { EmployeeService } from 'src/app/shared/employee.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +15,15 @@ import { Router } from '@angular/router';
 
 export class HomeComponent implements OnInit {
   userDetails;
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(
+    private userService: UserService,
+    private certService: CertificateService,
+    private schoolsService: SchoolsService,
+    private employeeService: EmployeeService,
+    private router: Router,
+    private fb: FormBuilder
+    ) { }
+
     public SchoolList: School[];
     public EmployerList: Employer[];
     public CertificationList: Certificate[];
@@ -26,10 +37,96 @@ export class HomeComponent implements OnInit {
     phone: ''
   };
 
+  certificationsColumns: string[] = ['issuer', 'certification', 'certNumber'];
+  certsDataSource: any[];
+
+  employerColumns: string[] = [
+    'employerName',
+    'address',
+    'city',
+    'state',
+    'zip',
+    'supervisionContact',
+    'phone',
+    'position',
+    'startDate',
+    'endDate',
+    'reasonForQuiting'
+  ];
+  employerDataSource: any[];
+
+  schoolsColumns: string[] = [
+    'schoolName',
+    'schoolType',
+    'address',
+    'city',
+    'state',
+    'zip',
+    'degree',
+    'major',
+    'yearsCompleted'
+  ];
+  schoolsDataSource: any[];
+
+  selectedSchollTypeVal: string;
+
+  showCertificateForm: boolean;
+  showSchoolsForm: boolean;
+  showEmploymentsForm: boolean;
+
+  // forms
+  certificateForm: FormGroup;
+  schoolsForm: FormGroup;
+  employmentsForm: FormGroup;
+
   ngOnInit() {
     this.SchoolList = [];
     this.EmployerList = [];
     this.CertificationList = [];
+
+    this.showCertificateForm = false;
+    this.showSchoolsForm = false;
+    this.showEmploymentsForm = false;
+
+    // init reactive forms
+    this.certificateForm = this.fb.group({
+      issuer: ['', [
+        Validators.required
+      ]],
+      certification: ['', [
+        Validators.required
+      ]],
+      certNumber: ['', [
+        Validators.required
+      ]]
+    });
+
+    this.schoolsForm = this.fb.group({
+      schoolName: '',
+      schoolType: '',
+      address: '',
+      city: '',
+      state: '',
+      zip: '',
+      degree: '',
+      major: '',
+      yearsCompleted: ''
+    });
+    this.employmentsForm = this.fb.group({
+      employerName: '',
+      address: '',
+      city: '',
+      state: '',
+      zip: '',
+      supervisionContact: '',
+      phone: '',
+      position: '',
+      startDate: '',
+      endDate: '',
+      reasonForQuiting: ''
+    });
+
+    // get updated user data
     this.userService.getUserProfile().subscribe(
       res=>{
         this.userDetails = res['user'];
@@ -38,39 +135,123 @@ export class HomeComponent implements OnInit {
         console.log(err);
        }
     );
+
+    // refresh lists
+    this.refreshCertificatesList();
+    this.refreshEmploymentsList();
+    this.refreshSchoolsList();
   }
 
   addNewEmployer() {
-    var emp = new Employer();
-    emp.id = this.EmployerList.length;
-    this.EmployerList.push(emp);
-    console.log(`New Employer Added...`);
+    this.employeeService.postEmployee(this.employmentsForm.value)
+    .subscribe(
+      (res: any) => {
+        this.refreshEmploymentsList();
+        this.toggleEmploymentsForm();
+      },
+      err => {
+        console.log("Error adding employer", err);
+      }
+    );
   }
 
   removeLastEmployer() {
     this.EmployerList.pop();
+    this.employerDataSource = this.EmployerList;
   }
 
   addNewSchool() {
-    var sch = new School();
-    sch.id = this.SchoolList.length;
-    this.SchoolList.push(sch);
-    console.log(`New School Added...`);
+    this.schoolsService.postSchool(this.schoolsForm.value)
+    .subscribe(
+      (res: any) => {
+        this.refreshSchoolsList();
+        this.toggleSchoolsForm();
+      },
+      err => {
+        console.log("Error adding school", err);
+      }
+    );
   }
 
   removeLastSchool() {
     this.SchoolList.pop();
+    this.schoolsDataSource = this.SchoolList;
+  }
+
+  toggleCertificationForm() {
+    this.showCertificateForm = !this.showCertificateForm;
+    if (this.showCertificateForm) {
+      this.certificateForm.reset();
+    }
+  }
+  toggleSchoolsForm() {
+    this.showSchoolsForm = !this.showSchoolsForm;
+    if (this.showSchoolsForm) {
+      this.schoolsForm.reset();
+    }
+  }
+  toggleEmploymentsForm() {
+    this.showEmploymentsForm = !this.showEmploymentsForm;
+    if (this.showEmploymentsForm) {
+      this.employmentsForm.reset();
+    }
   }
 
   addNewCertification() {
-    var crt = new Certificate();
-    crt.id = this.CertificationList.length;
-    this.CertificationList.push(crt);
-    console.log(`New Certification Added...`);
+    this.certService.postCertificate(this.certificateForm.value)
+    .subscribe(
+      (res: any) => {
+        this.refreshCertificatesList();
+        this.toggleCertificationForm();
+      },
+      err => {
+        console.log("Error adding certificate", err);
+      }
+    );
+  }
+
+  refreshCertificatesList() {
+    this.certService.getCertificateList()
+      .subscribe(
+        (res: any) => {
+          this.CertificationList = res.certificates;
+          this.certsDataSource = this.CertificationList;
+        },
+        err => {
+          console.log('Error getting certificates', err);
+        }
+      );
+  }
+
+  refreshSchoolsList() {
+    this.schoolsService.getSchoolsList()
+      .subscribe(
+        (res: any) => {
+          this.SchoolList = res.schools;
+          this.schoolsDataSource = this.SchoolList;
+        },
+        err => {
+          console.log('Error getting schools', err);
+        }
+      );
+  }
+
+  refreshEmploymentsList() {
+    this.employeeService.getEmployeeList()
+    .subscribe(
+      (res: any) => {
+        this.EmployerList = res.employments;
+        this.employerDataSource = this.EmployerList;
+      },
+      err => {
+        console.log('Error getting employments', err);
+      }
+    );
   }
 
   removeLastCertification() {
     this.CertificationList.pop();
+    this.certsDataSource = this.CertificationList;
   }
 
   onSubmit(form: NgForm) {
