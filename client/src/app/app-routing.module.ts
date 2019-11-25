@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AuthGuard } from './auth/auth.guard';
 import { HomeComponent } from './components/home/home.component';
 import { AddCertificationComponent } from './components/add-certification/add-certification.component';
@@ -21,9 +20,6 @@ export const routes: Routes = [
   {
     path: 'login', component: UserComponent,
     children: [{ path: '', component: SignInComponent }]
-  },
-  {
-    path: 'userprofile', component: UserProfileComponent, canActivate: [AuthGuard]
   },
   {
     path: 'home', component: HomeComponent, canActivate: [AuthGuard]

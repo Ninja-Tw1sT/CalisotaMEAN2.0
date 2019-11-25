@@ -13,7 +13,6 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 
 //routes
 import { AppRoutingModule, routes } from './app-routing.module';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserService } from './shared/user.service';
 import { HomeComponent } from './components/home/home.component';
@@ -37,7 +36,6 @@ import { EmployeeService } from './shared/employee.service';
     AppComponent,
     UserComponent,
     SignUpComponent,
-    UserProfileComponent,
     SignInComponent,
     HomeComponent,
     AddEducationComponent,

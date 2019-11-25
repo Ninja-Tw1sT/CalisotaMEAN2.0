@@ -1,6 +1,6 @@
 <div>
     <img src="assets/img/single_user.png" id="icon" alt="User Icon" />
-  </div>
+</div>
   <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
     <input type="text" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Email" [pattern]="emailRegex" required
       [ngClass]="{'invalid-textbox' :signInForm.submitted && !email.valid }">
@@ -14,6 +14,7 @@
     </div>
     <input type="submit" value="Sign In">&nbsp;
     <!-- <a href="/auth/facebook" target="_blank"><button type="button" class="btn btn-success">Facebook</button></a> -->
+
   </form>
   <!-- Error message -->
 <div class="alert" *ngIf="serverErrorMessages">
