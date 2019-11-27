@@ -1,6 +1,13 @@
 
+<span md-colors="{color:'primary'}">
+    <mat-card-title class="header1">
+        <h1>Add Your Employments</h1>
+    </mat-card-title>
+    <mat-card-content>
+
+    </mat-card-content>
+</span>
 <form #addEmploymentForm="ngForm" (ngSubmit)="addEmploymentForm.valid && onSubmit(addEmploymentForm)">
-  <br><br>
   <div class="center1" fxLayout="column" fxLayoutGap="32px">
     <br>
     <input type="text" #employerName="ngModel" [(ngModel)]="userService.selectedUser.employerName" name="employerName" placeholder="Employer Name"

@@ -1,0 +1,76 @@
+
+span {
+  padding-right: 1rem;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mat-expansion-panel-header-description {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+.mat-button, .mat-stroked-button {
+  background-color:#0c2152;
+  color: #fff;
+}
+
+.mat-button-toggle-group {
+  background-color: blue;
+  color: blue;
+}
+/*
+.mat-panel-title {
+  justify-content: center !important;
+}
+
+.headers-align .mat-expansion-panel-header-title,
+.headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+*/
+
+
+.form {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: rgb(206, 83, 12);
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.container {
+  background-color: coral;
+}
+
+
+.mat-expansion-panel {
+  background: #09215a;
+}
+.mat-expansion-panel-header-title {
+  color: rgb(255, 255, 255)
+}
+.mat-expansion-panel-header-description {
+  color: rgb(255, 255, 255)
+}
+.mat-card-title {
+  color: #09215a;
+  text-align: center;
+}

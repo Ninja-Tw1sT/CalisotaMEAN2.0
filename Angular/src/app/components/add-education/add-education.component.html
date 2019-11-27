@@ -1,4 +1,11 @@
-<br><br><br><br>
+<span md-colors="{color:'primary'}">
+    <mat-card-title class="header1">
+        <h1>Add Your Educations</h1>
+    </mat-card-title>
+    <mat-card-content>
+
+    </mat-card-content>
+</span>
 <form #signUpForm="ngForm" class="center" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
   <div class="center1" fxLayout="column" fxLayoutGap="32px">
     <input type="text" #schoolName="ngModel" [(ngModel)]="userService.selectedUser.schoolName" name="schoolName" placeholder="Scool Name"

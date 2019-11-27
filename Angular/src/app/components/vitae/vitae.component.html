@@ -1,1 +1,231 @@
-<p>vitae works!</p>
+<span md-colors="{color:'primary'}">
+    <mat-card-title>
+        <h3>Verified Vitae</h3>
+    </mat-card-title>
+    <mat-card-content>
+
+    </mat-card-content>
+  </span>
+<body>
+
+  <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Verified Profile
+          </mat-panel-title>
+          <mat-panel-description>
+            View Your Verified Profile
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <table *ngIf="userDetails" class="table-fill">
+            <thead>
+              <tr>
+                  <th colspan="2" class="text-center">User Profile</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td>First Name</td>
+                  <td>{{userDetails.firstName}}</td>
+              </tr>
+              <tr>
+                  <td>Last Name</td>
+                  <td>{{userDetails.lastName}}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>{{userDetails.email}}</td>
+              </tr>
+              <tr>
+                <td>City</td>
+                <td>{{userDetails.city}}</td>
+              </tr>
+              <tr>
+                <td>Phone</td>
+                <td>{{userDetails.phone}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </mat-expansion-panel>
+
+
+      <!--                  E D U C A T I O N                  -->
+
+      <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Verified Education
+            </mat-panel-title>
+            <mat-panel-description>
+              View Your Verified Education
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <table *ngIf="SchoolList && SchoolList.length" style="width: 100%" mat-table [dataSource]="schoolsDataSource">
+            <ng-container matColumnDef="schoolName">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> School Name </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.schoolName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="schoolType">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> School Type </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.schoolType}} </td>
+            </ng-container>
+            <ng-container matColumnDef="address">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Address </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.address}} </td>
+            </ng-container>
+            <ng-container matColumnDef="city">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> City </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.city}} </td>
+            </ng-container>
+            <ng-container matColumnDef="state">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> State </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.state}} </td>
+            </ng-container>
+            <ng-container matColumnDef="zip">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Zip </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.zip}} </td>
+            </ng-container>
+            <ng-container matColumnDef="degree">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Degree </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.degree}} </td>
+            </ng-container>
+            <ng-container matColumnDef="major">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Major </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.major}} </td>
+            </ng-container>
+            <ng-container matColumnDef="yearsCompleted">
+              <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Years Completed </th>
+              <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.yearsCompleted}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="schoolsColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: schoolsColumns;"></tr>
+          </table>
+        </mat-expansion-panel>
+
+
+        <!--       E  M  P  L  O  Y  M  E  N  T        -->
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+              <mat-panel-title>
+                Verified Employment
+              </mat-panel-title>
+              <mat-panel-description>
+                View Your Verified Employment
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <table *ngIf="EmployerList && EmployerList.length" style="width: 100%" mat-table [dataSource]="employerDataSource">
+              <ng-container matColumnDef="employerName">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Employer Name </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.employerName}} </td>
+              </ng-container>
+              <ng-container matColumnDef="address">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Address </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.address}} </td>
+              </ng-container>
+              <ng-container matColumnDef="city">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> City </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.city}} </td>
+              </ng-container>
+              <ng-container matColumnDef="state">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> State </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.state}} </td>
+              </ng-container>
+              <ng-container matColumnDef="zip">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Zip </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.zip}} </td>
+              </ng-container>
+              <ng-container matColumnDef="supervisionContact">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Supervision contact </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.supervisionContact}} </td>
+              </ng-container>
+              <ng-container matColumnDef="phone">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Phone </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.phone}} </td>
+              </ng-container>
+              <ng-container matColumnDef="position">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Position </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.position}} </td>
+              </ng-container>
+              <ng-container matColumnDef="startDate">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Start Date </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.startDate}} </td>
+              </ng-container>
+              <ng-container matColumnDef="endDate">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> EndDate </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.endDate}} </td>
+              </ng-container>
+              <ng-container matColumnDef="reasonForQuiting">
+                <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Reason For Quiting </th>
+                <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.reasonForQuiting}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="employerColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: employerColumns;"></tr>
+            </table>
+
+        </mat-expansion-panel>
+
+
+          <!--    C   E   R   T   I   F  I  C  A  T  I  O  N  S   -->
+
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Verified Certifications
+                </mat-panel-title>
+                <mat-panel-description>
+                  View Your Verified Certifications
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+
+              <table *ngIf="CertificationList && CertificationList.length" style="width: 100%" mat-table [dataSource]="certsDataSource">
+                  <ng-container matColumnDef="issuer">
+                    <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Issuer / Authority </th>
+                    <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.issuer}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="certification">
+                    <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Certification </th>
+                    <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.certification}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="certNumber">
+                    <th style="color: #fff; padding: 5px;" mat-header-cell *matHeaderCellDef> Certification Number / ID </th>
+                    <td style="padding-right: 5px;" mat-cell *matCellDef="let element"> {{element.certNumber}} </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="certificationsColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: certificationsColumns;"></tr>
+                </table>
+          </mat-expansion-panel>
+
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Verified Documents
+                </mat-panel-title>
+                <mat-panel-description>
+                  View Your Verified Documents
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+            </mat-expansion-panel>
+  </mat-accordion>
+    &nbsp;
+    <br>
+    <!--
+      <span md-colors="{color:'primary'}">
+        <mat-card-title>
+            <h1>Verified Vitae</h1>
+        </mat-card-title><br><br>
+        <mat-card-content>
+
+        </mat-card-content>
+      </span>
+    -->
+</body>
+

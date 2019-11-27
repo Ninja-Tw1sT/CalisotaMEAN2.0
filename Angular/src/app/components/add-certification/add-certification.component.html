@@ -1,7 +1,15 @@
-<br><br><br><br><br>
+<span md-colors="{color:'primary'}">
+    <mat-card-title class="header">
+        <h1>Add Your Certifications</h1>
+    </mat-card-title>
+    <mat-card-content>
+
+    </mat-card-content>
+</span>
+
 <form #signUpForm="ngForm" class="center" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
   <div class="center1" fxLayout="column" fxLayoutGap="32px">
-    <input type="text" #issuerName="ngModel" [(ngModel)]="userService.selectedUser.issuerName" name="issuerName" placeholder="Full Name"
+    <input type="text" #issuerName="ngModel" [(ngModel)]="userService.selectedUser.issuerName" name="issuerName" placeholder="Issuer Name"
     required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !issuerName.valid }">
     <div *ngIf="signUpForm.submitted && !issuerName.valid">
       <label style="color: #fff;" class="validation-message">This field is required.</label>
