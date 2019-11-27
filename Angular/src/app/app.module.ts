@@ -29,6 +29,7 @@ import { CertificateService } from './shared/certificates.service';
 import { SchoolsService } from './shared/schools.service';
 import { EmployeeService } from './shared/employee.service';
 import { ReferralsComponent } from './components/referrals/referrals.component';
+import { AboutComponent } from './components/about/about.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ReferralsComponent } from './components/referrals/referrals.component';
     AddCertificationComponent,
     AddEmploymentComponent,
     GamecardComponent,
-    ReferralsComponent
+    ReferralsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

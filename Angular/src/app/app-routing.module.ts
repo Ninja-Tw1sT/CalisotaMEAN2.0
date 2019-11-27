@@ -10,6 +10,7 @@ import { AddEducationComponent } from './components/add-education/add-education.
 import { AddEmploymentComponent } from './components/add-employment/add-employment.component';
 import { GamecardComponent } from './components/gamecard/gamecard.component';
 import { ReferralsComponent } from './components/referrals/referrals.component';
+import { AboutComponent } from './components/about/about.component';
 
 
 export const routes: Routes = [
@@ -35,6 +36,9 @@ export const routes: Routes = [
   },
   {
     path: 'referrals', component: ReferralsComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'about', component: AboutComponent, canActivate: [AuthGuard]
   },
   {
     path: 'gamecard', component: GamecardComponent, canActivate: [AuthGuard]
