@@ -31,8 +31,8 @@ import { EmployeeService } from './shared/employee.service';
 import { ReferralsComponent } from './components/referrals/referrals.component';
 import { AboutComponent } from './components/about/about.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { TestpageComponent } from './components/testpage/testpage.component';
-import { VitaeComponent } from './vitae/vitae.component';
+import { VitaeComponent } from './components/vitae/vitae.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 
 @NgModule({
@@ -48,8 +48,8 @@ import { VitaeComponent } from './vitae/vitae.component';
     GamecardComponent,
     ReferralsComponent,
     AboutComponent,
-    TestpageComponent,
-    VitaeComponent
+    VitaeComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

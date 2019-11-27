@@ -22,7 +22,7 @@ export class SignInComponent implements OnInit {
   serverErrorMessages: string;
   ngOnInit() {
     if (this.userService.isLoggedIn()){
-    this.router.navigateByUrl('/userprofile');
+    this.router.navigateByUrl('/welcome');
     }
   }
 
@@ -30,7 +30,7 @@ export class SignInComponent implements OnInit {
     this.userService.login(form.value).subscribe(
       res => {
         this.userService.setToken(res['token']);
-        this.router.navigateByUrl('/home');         // W h e r e   T o   N a v i g a t e   O n   L o g i n
+        this.router.navigateByUrl('/welcome');         // W h e r e   T o   N a v i g a t e   O n   L o g i n
       },
       err => {
         this.serverErrorMessages = err.error.message;

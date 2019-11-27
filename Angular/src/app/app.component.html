@@ -7,10 +7,11 @@
   <h1>  Calisota</h1>
   <span class="fill-space"></span>
   <div class="these">
-    <a mat-button routerLink="/home" routerLinkActive="active">Résumé</a>
-    <a mat-button routerLink="/about" routerLinkActive="active">About Us</a>
-    <a mat-button href="https://www.calisota.life/book-online" routerLinkActive="active">Get Verified</a>
+    <a mat-button routerLink="/welcome" routerLinkActive="active">Welcome</a>
+    <a mat-button routerLink="/home" routerLinkActive="active">Your Résumé</a>
+    <a mat-button routerLink="/vitae" routerLinkActive="active">Verified Vitae</a>
     <a mat-button routerLink="/gamecard" routerLinkActive="active">Game Card</a>
+    <a mat-button routerLink="/about" routerLinkActive="active">About Us</a>
   </div>
   </mat-toolbar-row>
 
@@ -24,6 +25,7 @@
       <a mat-list-item [routerLink]="'/add-education'" routerLinkActive="active"> Add To Education </a>
       <a mat-list-item [routerLink]="'/add-employment'" routerLinkActive="active"> Add To Employment </a>
       <a mat-list-item [routerLink]="'/add-certification'" routerLinkActive="active"> Add To Certifications </a>
+      <a mat-list-item href="https://www.calisota.life/book-online" routerLinkActive="active"> Get Verified </a>
       <a mat-list-item (click)="onLogOut()"> Logout </a>
     </mat-nav-list>
   </mat-sidenav>
