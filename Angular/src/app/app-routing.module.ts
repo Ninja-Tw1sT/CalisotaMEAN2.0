@@ -8,8 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AddCertificationComponent } from './components/add-certification/add-certification.component';
 import { AddEducationComponent } from './components/add-education/add-education.component';
 import { AddEmploymentComponent } from './components/add-employment/add-employment.component';
-import { ContactsComponent } from './components/contacts/contacts.component';
 import { GamecardComponent } from './components/gamecard/gamecard.component';
+import { ReferralsComponent } from './components/referrals/referrals.component';
 
 
 export const routes: Routes = [
@@ -34,7 +34,7 @@ export const routes: Routes = [
     path: 'add-employment', component: AddEmploymentComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'contacts', component: ContactsComponent, canActivate: [AuthGuard]
+    path: 'referrals', component: ReferralsComponent, canActivate: [AuthGuard]
   },
   {
     path: 'gamecard', component: GamecardComponent, canActivate: [AuthGuard]

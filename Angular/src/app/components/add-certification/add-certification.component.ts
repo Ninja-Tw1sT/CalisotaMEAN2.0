@@ -1,40 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+import { MatInputModule } from '@angular/material';
 
+import { NgForm } from '@angular/forms';
 import { UserService } from '../../shared/user.service';
-import { EmployeeService } from 'src/app/shared/employee.service';
+import { CertificateService } from 'src/app/shared/certificates.service';
 
 @Component({
-  selector: 'app-add-employment',
-  templateUrl: './add-employment.component.html',
-  styleUrls: ['./add-employment.component.css']
+  selector: 'app-add-certification',
+  templateUrl: './add-certification.component.html',
+  styleUrls: ['./add-certification.component.css']
 })
-
-export class AddEmploymentComponent implements OnInit {
+export class AddCertificationComponent implements OnInit {
+  // tslint:disable-next-line: max-line-length
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
-  constructor(private userService: UserService, private employeeService: EmployeeService) { }
+  constructor(private userService: UserService, private certService: CertificateService) { }
 
   ngOnInit() {
   }
 
   onSubmit(form: NgForm) {
-    const employer = {
-      employerName: form.value.employerName,
-      address: form.value.employerAddress,
-      city: form.value.employerCity,
-      state: form.value.employerState,
-      zip: form.value.employerZIP,
-      supervisionContact: form.value.employerContact,
-      phone: form.value.employerPhone,
-      position: form.value.employerPositon,
-      startDate: form.value.employerStart,
-      endDate: form.value.employerEnd,
-      reasonForQuiting: form.value.employerReason
+    const certificate = {
+      issuer: form.value.issuerName,
+      certification: form.value.certification,
+      certNumber: form.value.certificationID
     };
-    this.employeeService.postEmployee(employer).subscribe(
+    this.certService.postCertificate(certificate).subscribe(
       res => {
         this.showSucessMessage = true;
         setTimeout(() => this.showSucessMessage = false, 4000);

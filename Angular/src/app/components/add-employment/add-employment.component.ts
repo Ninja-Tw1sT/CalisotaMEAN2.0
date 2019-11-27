@@ -1,37 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../shared/user.service';
-import { SchoolsService } from '../../shared/schools.service';
 import { NgForm } from '@angular/forms';
 
+import { UserService } from '../../shared/user.service';
+import { EmployeeService } from 'src/app/shared/employee.service';
 
 @Component({
-  selector: 'app-add-education',
-  templateUrl: './add-education.component.html',
-  styleUrls: ['./add-education.component.css']
+  selector: 'app-add-employment',
+  templateUrl: './add-employment.component.html',
+  styleUrls: ['./add-employment.component.css']
 })
-export class AddEducationComponent implements OnInit {
+
+export class AddEmploymentComponent implements OnInit {
+  // tslint:disable-next-line: max-line-length
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
-  constructor(private userService: UserService, private schoolsService: SchoolsService) { }
+  constructor(public userService: UserService, public employeeService: EmployeeService) { }
 
   ngOnInit() {
   }
 
   onSubmit(form: NgForm) {
-    const school = {
-      schoolName: form.value.schoolName,
-      schoolType: form.value.schoolType,
-      address: form.value.schoolAddress,
-      city: form.value.schoolCity,
-      state: form.value.schoolState,
-      zip: form.value.schoolZIP,
-      degree: form.value.schoolDegree,
-      major: form.value.schoolMajor,
-      yearsCompleted: form.value.schoolYears
+    const employer = {
+      employerName: form.value.employerName,
+      address: form.value.employerAddress,
+      city: form.value.employerCity,
+      state: form.value.employerState,
+      zip: form.value.employerZIP,
+      supervisionContact: form.value.employerContact,
+      phone: form.value.employerPhone,
+      position: form.value.employerPositon,
+      startDate: form.value.employerStart,
+      endDate: form.value.employerEnd,
+      reasonForQuiting: form.value.employerReason
     };
-    this.schoolsService.postSchool(school).subscribe(
+    this.employeeService.postEmployee(employer).subscribe(
       res => {
         this.showSucessMessage = true;
         setTimeout(() => this.showSucessMessage = false, 4000);
