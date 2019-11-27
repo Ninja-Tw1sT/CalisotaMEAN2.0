@@ -1,0 +1,28 @@
+/deep/ .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: rgb(255, 145, 0);
+}
+
+/deep/ .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: rgb(255, 145, 0);
+}
+
+::ng-deep .mat-input-wrapper{
+  width:400px !important;
+}
+
+
+.fName {display: inline-block; width:47%;}
+.fName .cf-medium {width:97%;}
+
+
+.reg_name {
+  max-width:200px;
+}
+
+.reg_name2 {
+  max-width:200px;
+}
+
+.reg_name3 {
+  max-width:200px;
+}

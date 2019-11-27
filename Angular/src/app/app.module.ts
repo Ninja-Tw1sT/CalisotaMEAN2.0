@@ -30,6 +30,9 @@ import { SchoolsService } from './shared/schools.service';
 import { EmployeeService } from './shared/employee.service';
 import { ReferralsComponent } from './components/referrals/referrals.component';
 import { AboutComponent } from './components/about/about.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { TestpageComponent } from './components/testpage/testpage.component';
+import { VitaeComponent } from './vitae/vitae.component';
 
 
 @NgModule({
@@ -44,7 +47,9 @@ import { AboutComponent } from './components/about/about.component';
     AddEmploymentComponent,
     GamecardComponent,
     ReferralsComponent,
-    AboutComponent
+    AboutComponent,
+    TestpageComponent,
+    VitaeComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,8 @@ import { AboutComponent } from './components/about/about.component';
     RouterModule.forRoot(routes),
     HttpClientModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSlideToggleModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

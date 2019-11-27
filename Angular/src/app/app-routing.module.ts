@@ -11,6 +11,7 @@ import { AddEmploymentComponent } from './components/add-employment/add-employme
 import { GamecardComponent } from './components/gamecard/gamecard.component';
 import { ReferralsComponent } from './components/referrals/referrals.component';
 import { AboutComponent } from './components/about/about.component';
+import { TestpageComponent } from './components/testpage/testpage.component';
 
 
 export const routes: Routes = [
@@ -39,6 +40,9 @@ export const routes: Routes = [
   },
   {
     path: 'about', component: AboutComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'testpage', component: TestpageComponent, canActivate: [AuthGuard]
   },
   {
     path: 'gamecard', component: GamecardComponent, canActivate: [AuthGuard]

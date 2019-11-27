@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { UserService } from '../../shared/user.service';
 
 @Component({
@@ -9,12 +9,22 @@ import { UserService } from '../../shared/user.service';
   styleUrls: ['./sign-up.component.css'],
 })
 export class SignUpComponent implements OnInit {
+  isChecked = true;
+  formGroup: FormGroup;
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService, formBuilder: FormBuilder) {
+    this.formGroup = formBuilder.group({
+      enableWifi: false,
+      acceptTerms: [false, Validators.requiredTrue]
+    });
+  }
 
+  onFormSubmit(formValue: any) {
+    alert(JSON.stringify(formValue, null, 2));
+  }
 
   ngOnInit() {
   }
