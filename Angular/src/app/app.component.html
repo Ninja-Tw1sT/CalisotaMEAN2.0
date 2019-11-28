@@ -21,11 +21,13 @@
   <mat-sidenav #sidenav>
     <mat-nav-list>
       <a mat-list-item [routerLink]="'/home'"> Résumé </a>
+      <a mat-list-item [routerLink]="'/vitae'"> Verified Vitae </a>
+      <a mat-list-item [routerLink]="'/gamecard'"> Game Card </a>
       <a mat-list-item [routerLink]="'/referrals'"> Referrals </a>
       <a mat-list-item [routerLink]="'/add-education'" routerLinkActive="active"> Add To Education </a>
       <a mat-list-item [routerLink]="'/add-employment'" routerLinkActive="active"> Add To Employment </a>
       <a mat-list-item [routerLink]="'/add-certification'" routerLinkActive="active"> Add To Certifications </a>
-      <a mat-list-item href="https://www.calisota.life/book-online" routerLinkActive="active"> Get Verified </a>
+      <a mat-list-item class="orange" href="https://www.calisota.life/book-online" routerLinkActive="active"> Get Verified </a>
       <a mat-list-item (click)="onLogOut()"> Logout </a>
     </mat-nav-list>
   </mat-sidenav>

@@ -10,12 +10,14 @@
 
 .mat-expansion-panel {
   background: rgb(248, 119, 45);
+
 }
 .mat-expansion-panel-header-title {
   color: rgb(255, 255, 255)
 }
 .mat-expansion-panel-header-description {
-  color: rgb(255, 255, 255)
+  color: rgb(255, 255, 255);
+
 }
 .panel2 {
   background: #09215a;
@@ -23,4 +25,10 @@
 
 .white {
   color: white;
+  text-align: center;
 }
+
+::ng-deep .panel2 > .mat-expansion-indicator:after {
+  color: white;
+}
+/deep/ .mat-expansion-indicator::after, .mat-expansion-panel-header-description { color: white;}
