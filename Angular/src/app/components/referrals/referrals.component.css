@@ -1,0 +1,19 @@
+
+.center1 {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(224, 96, 10);
+
+};
+
+.header1 {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(224, 96, 10);
+  color: rgb(224, 96, 10)
+}
+
+.mat-card-title {
+  color: rgb(23, 34, 110);
+  text-align: center;
+}

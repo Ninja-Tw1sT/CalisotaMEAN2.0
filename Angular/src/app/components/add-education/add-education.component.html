@@ -8,7 +8,7 @@
 </span>
 <form #signUpForm="ngForm" class="center" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
   <div class="center1" fxLayout="column" fxLayoutGap="32px">
-    <input type="text" #schoolName="ngModel" [(ngModel)]="userService.selectedUser.schoolName" name="schoolName" placeholder="Scool Name"
+    <input type="text" #schoolName="ngModel" [(ngModel)]="userService.selectedUser.schoolName" name="schoolName" placeholder="School Name"
     required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !schoolName.valid }">
     <div *ngIf="signUpForm.submitted && !schoolName.valid">
      <label style="color: #fff;" class="validation-message">* field required.</label>

@@ -69,7 +69,7 @@
     </div>
   </div>
   <div class="center1" fxLayout="column" fxLayoutGap="32px">
-      <input type="text" #employerReason="ngModel" [(ngModel)]="userService.selectedUser.employerReason" name="employerReason" placeholder="Reason For Quitting"
+      <input type="text" #employerReason="ngModel" [(ngModel)]="userService.selectedUser.employerReason" name="employerReason" placeholder="Reason For Leaving"
     required [ngClass]="{'invalid-textbox' :addEmploymentForm.submitted && !employerReason.valid }">
     <div *ngIf="addEmploymentForm.submitted && employerReason.errors">
       <label style="color: #fff;" *ngIf="employerReason.errors.required" class="validation-message">* field required.</label>
