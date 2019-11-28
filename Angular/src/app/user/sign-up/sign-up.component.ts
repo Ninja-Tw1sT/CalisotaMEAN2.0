@@ -17,8 +17,8 @@ export class SignUpComponent implements OnInit {
 
   constructor(public userService: UserService, formBuilder: FormBuilder) {
     this.formGroup = formBuilder.group({
-      enableWifi: false,
-      acceptTerms: [false, Validators.requiredTrue]
+      empOpp: true,
+      acceptTerms: [true, Validators.requiredTrue]
     });
   }
 
