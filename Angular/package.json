@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "serve": "node server",
-    "start": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\" \"nodemon server\" \"ng serve --open\" \"ng serve --project AdminPanel --port 4300\"",
+    "start": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\" \"nodemon server\" \"ng serve\" \"ng serve --project AdminPanel --port 4300\"",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",

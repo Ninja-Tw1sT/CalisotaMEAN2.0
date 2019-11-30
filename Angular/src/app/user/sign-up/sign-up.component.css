@@ -42,3 +42,25 @@
 }
 
 
+input[type=text]:focus:not([readonly]) + label {
+  color: orange;
+}
+
+input[type=text]:focus:not([readonly]) {
+  border-bottom: 1px solid orange;
+  box-shadow: 0 1px 0 0 orange;
+}
+
+input[type=password]:focus:not([readonly]) + label {
+  color: orange;
+}
+
+input[type=password]:focus:not([readonly]) {
+  border-bottom: 1px solid orange;
+  box-shadow: 0 1px 0 0 orange;
+}
+.button1 {
+  background-color: orange;
+}
+
+
