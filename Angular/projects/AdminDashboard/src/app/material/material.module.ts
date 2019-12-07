@@ -12,6 +12,7 @@ import {
   MatExpansionModule,
   MatGridListModule,
   MatTableModule,
+  MatTabsModule
 } from '@angular/material';
 
 
@@ -28,6 +29,7 @@ const Material =[
   MatGridListModule,
   MatExpansionModule,
   MatTableModule,
+  MatTabsModule
 ];
 
 @NgModule({

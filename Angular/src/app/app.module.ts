@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { MaterialModule } from './material/material.module';
+import { MaterialModule } from '../../projects/AdminDashboard/src/app/material/material.module';
 
 // components
 import { AppComponent } from './app.component';

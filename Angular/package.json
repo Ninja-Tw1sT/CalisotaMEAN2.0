@@ -1,10 +1,10 @@
 {
-  "name": "angular8",
+  "name": "angular",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "serve": "node server",
-    "start": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\" \"nodemon server\" \"ng serve\" \"ng serve --project AdminPanel --port 4300\"",
+    "start": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\" \"nodemon server\" \"ng serve\" \"ng serve --project AdminDashboard --port 4300\"",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -17,6 +17,7 @@
     "@angular/common": "~8.2.9",
     "@angular/compiler": "~8.2.9",
     "@angular/core": "~8.2.9",
+    "@angular/flex-layout": "^8.0.0-beta.27",
     "@angular/forms": "~8.2.9",
     "@angular/material": "~8.2.3",
     "@angular/platform-browser": "~8.2.9",

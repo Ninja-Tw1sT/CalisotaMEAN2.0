@@ -43,7 +43,7 @@
 
 
 input[type=text]:focus:not([readonly]) + label {
-  color: orange;
+  color: rgb(209, 92, 38);
 }
 
 input[type=text]:focus:not([readonly]) {
@@ -60,7 +60,7 @@ input[type=password]:focus:not([readonly]) {
   box-shadow: 0 1px 0 0 orange;
 }
 .button1 {
-  background-color: orange;
+  background-color: rgb(255, 123, 0);
 }
 
 

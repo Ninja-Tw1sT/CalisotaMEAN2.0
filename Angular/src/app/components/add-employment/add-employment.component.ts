@@ -16,7 +16,7 @@ export class AddEmploymentComponent implements OnInit {
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
-  constructor(public userService: UserService, public employeeService: EmployeeService) { }
+  constructor(private userService: UserService, private employeeService: EmployeeService) { }
 
   ngOnInit() {
   }
