@@ -10,13 +10,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatMenuModule} from '@angular/material/menu';
 import { SettingsComponent } from './components/settings/settings.component';
 import { CandidatesComponent } from './components/candidates/candidates.component';
+import { SearchComponent } from './components/search/search.component';
+import { VerificationComponent } from './components/verification/verification.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SettingsComponent,
-    CandidatesComponent
+    CandidatesComponent,
+    SearchComponent,
+    VerificationComponent
   ],
   imports: [
     BrowserModule,

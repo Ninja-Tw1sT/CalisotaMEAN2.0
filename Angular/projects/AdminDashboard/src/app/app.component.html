@@ -8,9 +8,10 @@
   <span class="fill-space"></span>
   <div class="these">
     <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
-    <a mat-button routerLink="/candidates" routerLinkActive="active">Candidates</a>
-    <a mat-button routerLink="/settings" routerLinkActive="active">Settings</a>
+    <a mat-button routerLink="/verification" routerLinkActive="active">Verification</a>
     <a mat-button routerLink="/search" routerLinkActive="active">Search</a>
+    <a mat-button routerLink="/settings" routerLinkActive="active">Settings</a>
+
   </div>
   </mat-toolbar-row>
 
@@ -19,10 +20,10 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
     <mat-nav-list>
-      <a mat-list-item [routerLink]="'/home'"> Résumé </a>
-      <a mat-list-item [routerLink]="'/vitae'"> Verified Vitae </a>
-      <a mat-list-item [routerLink]="'/gamecard'"> Game Card </a>
-      <a mat-list-item [routerLink]="'/referrals'"> Add Referrals </a>
+      <a mat-list-item [routerLink]="'/home'"> Home </a>
+      <a mat-list-item [routerLink]="'/verification'"> Verification </a>
+      <a mat-list-item [routerLink]="'/search'"> Search </a>
+      <a mat-list-item [routerLink]="'/settings'"> Settings </a>
       <a mat-list-item (click)="onLogOut()"> Logout </a>
     </mat-nav-list>
   </mat-sidenav>
