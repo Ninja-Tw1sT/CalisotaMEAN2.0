@@ -5,7 +5,7 @@ var session = require('express-session');
 
 module.exports = function(app, passport) {
 
-    
+
     app.use(passport.initialize());
     app.use(passport.session());
     app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: true, cookie: { secure: false }}));
@@ -38,8 +38,8 @@ function(accessToken, refreshToken, profile, done) {
     app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }));
 
     app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
-
-    return passport;
-    
-}
+I need just a couple of things added. One is a file uploader for pictures and documents.
+I need just a couple of things added. One is a file uploader for pictures and documents.
+I need just a couple of things added. One is a file uploader for pictures and documents.
+I need just a couple of things added. One is a file uploader for pictures and documents.
 */
