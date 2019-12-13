@@ -14,22 +14,23 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
 
-    if (req.headers.get('noauth'))
+    if (req.headers.get('noauth')) {
       return next.handle(req.clone());
-    else {
+    } else {
       const clonedreq = req.clone({
-        headers: req.headers.set("Authorization", "Bearer " + this.userService.getToken())
+        headers: req.headers.set('Authorization', 'Bearer ' + this.userService.getToken())
       });
       return next.handle(clonedreq).pipe(
           tap(
             event => { },
             err => {
+                // tslint:disable-next-line: triple-equals
                 if (err.error.auth == false) {
                     this.router.navigateByUrl('/login');
                 }
             })
       );
-    }  
-     
+    }
+
   }
 }
