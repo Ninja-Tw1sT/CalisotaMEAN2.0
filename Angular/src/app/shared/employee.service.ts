@@ -5,8 +5,12 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { environment } from '../../environments/environment';
 
+import { Employee } from './employee.model';
+
 @Injectable()
 export class EmployeeService {
+  selectedEmployee: Employee;
+  employees: Employee[];
   readonly baseURL =  environment.apiBaseUrl + '/employments';
 
   constructor(private http: HttpClient) { }
@@ -23,7 +27,6 @@ export class EmployeeService {
     return this.http.put(this.baseURL + `/${emp._id}`, emp);
   }
 
-  // tslint:disable-next-line: variable-name
   deleteEmployee(_id: string) {
     return this.http.delete(this.baseURL + `/${_id}`);
   }

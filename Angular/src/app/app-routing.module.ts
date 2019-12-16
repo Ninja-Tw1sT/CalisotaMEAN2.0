@@ -13,6 +13,7 @@ import { ReferralsComponent } from './components/referrals/referrals.component';
 import { AboutComponent } from './components/about/about.component';
 import { VitaeComponent } from './components/vitae/vitae.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { AddDocumentationComponent } from './components/add-documentation/add-documentation.component';
 
 
 export const routes: Routes = [
@@ -35,6 +36,9 @@ export const routes: Routes = [
   },
   {
     path: 'add-employment', component: AddEmploymentComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'add-documentation', component: AddDocumentationComponent, canActivate: [AuthGuard]
   },
   {
     path: 'referrals', component: ReferralsComponent, canActivate: [AuthGuard]

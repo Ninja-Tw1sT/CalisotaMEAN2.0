@@ -14,13 +14,13 @@ export class AddEducationComponent implements OnInit {
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
-  constructor(private userService: UserService, private schoolsService: SchoolsService) { }
+  constructor(public userService: UserService, public schoolsService: SchoolsService) { }
 
   ngOnInit() {
   }
 
   onSubmit(form: NgForm) {
-    const school = {
+    const school: any = {
       schoolName: form.value.schoolName,
       schoolType: form.value.schoolType,
       address: form.value.schoolAddress,
@@ -57,7 +57,8 @@ export class AddEducationComponent implements OnInit {
       phone: '',
       education: [],
       employment: [],
-      certifications: []
+      certifications: [],
+      referrals: []
     };
     form.resetForm();
     this.serverErrorMessages = '';

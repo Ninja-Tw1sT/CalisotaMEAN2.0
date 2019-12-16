@@ -14,7 +14,7 @@ export class ReferralsComponent implements OnInit {
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
-  constructor(public userService: UserService, public schoolsService: SchoolsService) { }
+  constructor(public userService: UserService, private schoolsService: SchoolsService) { }
 
   ngOnInit() {
   }
@@ -57,7 +57,8 @@ export class ReferralsComponent implements OnInit {
       phone: '',
       education: [],
       employment: [],
-      certifications: []
+      certifications: [],
+      referrals: []
     };
     form.resetForm();
     this.serverErrorMessages = '';

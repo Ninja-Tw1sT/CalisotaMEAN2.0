@@ -18,13 +18,13 @@ export class AddCertificationComponent implements OnInit {
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
-  constructor(private userService: UserService, private certService: CertificateService) { }
+  constructor(public userService: UserService, private certService: CertificateService) { }
 
   ngOnInit() {
   }
 
   onSubmit(form: NgForm) {
-    const certificate = {
+    const certificate: any = {
       issuer: form.value.issuerName,
       certification: form.value.certification,
       certNumber: form.value.certificationID
@@ -55,7 +55,8 @@ export class AddCertificationComponent implements OnInit {
       phone: '',
       education: [],
       employment: [],
-      certifications: []
+      certifications: [],
+      referrals: []
     };
     form.resetForm();
     this.serverErrorMessages = '';

@@ -27,6 +27,7 @@ export class VitaeComponent implements OnInit {
       public SchoolList: School[];
       public EmployerList: Employer[];
       public CertificationList: Certificate[];
+      public ReferralsList: Referrals[];
       showSucessMessage: boolean;
       serverErrorMessages: string;
     model = {
@@ -43,33 +44,36 @@ export class VitaeComponent implements OnInit {
 
     employerColumns: string[] = [
       'employerName',
-      'address',
-      'city',
-      'state',
-      'zip',
-      'supervisionContact',
-      'phone',
-      'position',
-      'startDate',
-      'endDate',
-      'reasonForQuiting'
+      'employerAddress',
+      'employerCity',
+      'employerState',
+      'employerZIP',
+      'employerContact',
+      'employerPhone',
+      'employerPosition',
+      'employerStart',
+      'employerEnd',
+      'employerReason'
     ];
     employerDataSource: any[];
 
     schoolsColumns: string[] = [
       'schoolName',
       'schoolType',
-      'address',
-      'city',
-      'state',
-      'zip',
-      'degree',
-      'major',
-      'yearsCompleted'
+      'schoolAddress',
+      'schoolCity',
+      'schoolState',
+      'schoolZIP',
+      'schoolDegree',
+      'schoolMajor',
+      'schoolYears'
     ];
     schoolsDataSource: any[];
 
     selectedSchollTypeVal: string;
+
+    referralsColumns: string[] = ['referralName', 'referralPhone', 'referralEmail', 'referralYears'];
+    referralsDataSource: any[];
 
     showCertificateForm: boolean;
     showSchoolsForm: boolean;
@@ -281,7 +285,8 @@ export class VitaeComponent implements OnInit {
         phone: '',
         education: [],
         employment: [],
-        certifications: []
+        certifications: [],
+        referrals: []
       };
       form.resetForm();
       this.serverErrorMessages = '';
@@ -308,4 +313,12 @@ export class VitaeComponent implements OnInit {
     public name: string;
     public startdate: Date;
     public enddate: Date;
+  }
+
+  export class Referrals {
+    public id: number;
+    public name: string;
+    public phone: number;
+    public email: string;
+    public years: number;
   }

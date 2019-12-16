@@ -78,3 +78,14 @@ body {
   color: orange;
   text-align: center;
 }
+.mat-button-toggle {
+  background-color: rgb(248, 119, 45);
+  color: white;
+}
+
+.mat-button-toggle-checked {
+  background-color: #0c2152;
+}
+.p {
+  color: white;
+}

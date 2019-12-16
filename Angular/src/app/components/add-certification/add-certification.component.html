@@ -9,21 +9,21 @@
 
 <form #signUpForm="ngForm" class="center" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
   <div class="center1" fxLayout="column" fxLayoutGap="32px">
-    <input type="text" #issuerName="ngModel" [(ngModel)]="userService.selectedUser.issuerName" name="issuerName" placeholder="Issuer Name"
+    <input type="text" #issuerName="ngModel" [(ngModel)]="userService.selectedUser.certifications.issuerName" name="issuerName" placeholder="Issuer Name"
     required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !issuerName.valid }">
     <div *ngIf="signUpForm.submitted && !issuerName.valid">
       <label style="color: #fff;" class="validation-message">This field is required.</label>
     </div>
   </div>
   <div class="center1" fxLayout="column" fxLayoutGap="32px">
-    <input type="text" #certification="ngModel" [(ngModel)]="userService.selectedUser.certification" name="certification" placeholder="certification"
+    <input type="text" #certification="ngModel" [(ngModel)]="userService.selectedUser.certifications.certification" name="certification" placeholder="certification"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !certification.valid }">
     <div *ngIf="signUpForm.submitted && certification.invalid">
       <label style="color: #fff;" class="validation-message">This field is required.</label>
     </div>
   </div>
   <div class="center1" fxLayout="column" fxLayoutGap="32px">
-    <input type="text" #certificationID="ngModel" [(ngModel)]="userService.selectedUser.certificationID" name="certificationID" placeholder="certificationID"
+    <input type="text" #certificationID="ngModel" [(ngModel)]="userService.selectedUser.certifications.certificationID" name="certificationID" placeholder="certificationID"
     required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !certificationID.valid }">
     <div *ngIf="signUpForm.submitted && certificationID.invalid">
       <label style="color: #fff;" class="validation-message">This field is required.</label>

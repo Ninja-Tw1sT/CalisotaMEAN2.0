@@ -3,13 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { MaterialModule } from '../../projects/AdminDashboard/src/app/material/material.module';
+// import { FileSelectDirective } from 'ng2-file-upload';
 
 // components
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { VitaeComponent } from './components/vitae/vitae.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { AddDocumentationComponent } from './components/add-documentation/add-documentation.component';
+import { AddEmploymentComponent } from './components/add-employment/add-employment.component';
+import { AddEducationComponent } from './components/add-education/add-education.component';
+import { AddCertificationComponent } from './components/add-certification/add-certification.component';
+import { GamecardComponent } from './components/gamecard/gamecard.component';
+import { ReferralsComponent } from './components/referrals/referrals.component';
+import { AboutComponent } from './components/about/about.component';
 
 // routes
 import { AppRoutingModule, routes } from './app-routing.module';
@@ -21,18 +31,12 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './auth/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './auth/auth.interceptor';
-import { AddEmploymentComponent } from './components/add-employment/add-employment.component';
-import { AddEducationComponent } from './components/add-education/add-education.component';
-import { AddCertificationComponent } from './components/add-certification/add-certification.component';
-import { GamecardComponent } from './components/gamecard/gamecard.component';
+
 import { CertificateService } from './shared/certificates.service';
 import { SchoolsService } from './shared/schools.service';
 import { EmployeeService } from './shared/employee.service';
-import { ReferralsComponent } from './components/referrals/referrals.component';
-import { AboutComponent } from './components/about/about.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { VitaeComponent } from './components/vitae/vitae.component';
-import { WelcomeComponent } from './components/welcome/welcome.component';
+
 
 
 @NgModule({
@@ -49,7 +53,11 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     ReferralsComponent,
     AboutComponent,
     VitaeComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    AddDocumentationComponent,
+ // FileSelectDirective
+
+
   ],
   imports: [
     BrowserModule,
@@ -60,8 +68,11 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     HttpClientModule,
     MaterialModule,
     BrowserAnimationsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+
   ],
+  exports: [ ],
+
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,

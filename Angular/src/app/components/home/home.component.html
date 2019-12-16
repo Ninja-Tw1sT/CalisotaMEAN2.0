@@ -106,8 +106,8 @@
                     <mat-form-field>
                         <input matInput placeholder="School Name" class="form-control" name="schoolName_{{school.id" formControlName="schoolName" required="true"/>
                     </mat-form-field><br>
-                    <p>School Type:</p>
-                    <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" formControlName="schoolType" required>
+                    <p class="p">School Type:</p>
+                    <mat-button-toggle-group class="toggleGroup" #toggleGroup="matButtonToggleGroup" formControlName="schoolType" required>
                         <mat-button-toggle value="High School">High School</mat-button-toggle>
                         <mat-button-toggle value ="College">College</mat-button-toggle>
                         <mat-button-toggle value ="Business or Trade School">Business or Trade School</mat-button-toggle>

@@ -16,13 +16,13 @@ export class AddEmploymentComponent implements OnInit {
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
-  constructor(private userService: UserService, private employeeService: EmployeeService) { }
+  constructor(public userService: UserService, private employeeService: EmployeeService) { }
 
   ngOnInit() {
   }
 
   onSubmit(form: NgForm) {
-    const employer = {
+    const employer: any = {
       employerName: form.value.employerName,
       address: form.value.employerAddress,
       city: form.value.employerCity,
@@ -61,7 +61,8 @@ export class AddEmploymentComponent implements OnInit {
       phone: '',
       education: [],
       employment: [],
-      certifications: []
+      certifications: [],
+      referrals: []
     };
     form.resetForm();
     this.serverErrorMessages = '';

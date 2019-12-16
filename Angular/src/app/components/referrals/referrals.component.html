@@ -9,7 +9,7 @@
 </span>
 <form #signUpForm="ngForm" class="center" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
 <div class="center1" fxLayout="column" fxLayoutGap="32px">
-  <input type="text" #referralName="ngModel" [(ngModel)]="userService.selectedUser.referralName" name="referralName" placeholder="Referral Name"
+  <input type="text" #referralName="ngModel" [(ngModel)]="userService.selectedUser.referrals.referralName" name="referralName" placeholder="Referral Name"
   required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !referralName.valid }">
   <div *ngIf="signUpForm.submitted && !referralName.valid">
    <label style="color: #fff;" class="validation-message">* field required.</label>
@@ -17,17 +17,17 @@
 </div>
 
 <div class="center1" fxLayout="column" fxLayoutGap="32px">
-  <input type="text" #referralPhone="ngModel" [(ngModel)]="userService.selectedUser.referralPhone" name="referralPhone" placeholder="Referral Phone"
+  <input type="text" #referralPhone="ngModel" [(ngModel)]="userService.selectedUser.referrals.referralPhone" name="referralPhone" placeholder="Referral Phone"
   required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !referralPhone.valid }">
   <div *ngIf="signUpForm.submitted && referralPhone.errors">
     <label style="color: #fff;" *ngIf="referralPhone.errors.required" class="validation-message">* field required.</label>
   </div>
-  <input type="text" #referralEmail="ngModel" [(ngModel)]="userService.selectedUser.referralEmail" name="referralEmail" placeholder="Referral Email"
+  <input type="text" #referralEmail="ngModel" [(ngModel)]="userService.selectedUser.referrals.referralEmail" name="referralEmail" placeholder="Referral Email"
   required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !referralEmail.valid }">
   <div *ngIf="signUpForm.submitted && referralEmail.errors">
     <label style="color: #fff;" *ngIf="referralEmail.errors.required" class="validation-message">* field required.</label>
   </div>
-  <input type="text" #referralYears="ngModel" [(ngModel)]="userService.selectedUser.referralYears" name="referralYears" placeholder="Years Known"
+  <input type="text" #referralYears="ngModel" [(ngModel)]="userService.selectedUser.referrals.referralYears" name="referralYears" placeholder="Years Known"
   required [ngClass]="{'invalid-textbox' :signUpForm.submitted && !referralYears.valid }">
   <div *ngIf="signUpForm.submitted && referralYears.errors">
     <label style="color: #fff;" *ngIf="referralYears.errors.required" class="validation-message">* field required.</label>

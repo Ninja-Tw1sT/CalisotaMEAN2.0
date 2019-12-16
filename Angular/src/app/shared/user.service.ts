@@ -17,7 +17,8 @@ export class UserService {
     phone: '',
     education: [],
     employment: [],
-    certifications: []
+    certifications: [],
+    referrals: []
 
   };
 

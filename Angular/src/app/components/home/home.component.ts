@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
     public SchoolList: School[];
     public EmployerList: Employer[];
     public CertificationList: Certificate[];
+    public ReferralsList: Referrals[];
     showSucessMessage: boolean;
     serverErrorMessages: string;
   model = {
@@ -151,7 +152,7 @@ export class HomeComponent implements OnInit {
         this.toggleEmploymentsForm();
       },
       err => {
-        console.log("Error adding employer", err);
+        console.log('Error adding employer', err);
       }
     );
   }
@@ -169,7 +170,7 @@ export class HomeComponent implements OnInit {
         this.toggleSchoolsForm();
       },
       err => {
-        console.log("Error adding school", err);
+        console.log('Error adding school', err);
       }
     );
   }
@@ -206,7 +207,7 @@ export class HomeComponent implements OnInit {
         this.toggleCertificationForm();
       },
       err => {
-        console.log("Error adding certificate", err);
+        console.log('Error adding certificate', err);
       }
     );
   }
@@ -281,7 +282,8 @@ export class HomeComponent implements OnInit {
       phone: '',
       education: [],
       employment: [],
-      certifications: []
+      certifications: [],
+      referrals: []
     };
     form.resetForm();
     this.serverErrorMessages = '';
@@ -308,4 +310,12 @@ export class Certificate {
   public name: string;
   public startdate: Date;
   public enddate: Date;
+}
+
+export class Referrals {
+  public id: number;
+  public name: string;
+  public phone: number;
+  public email: string;
+  public years: number;
 }
