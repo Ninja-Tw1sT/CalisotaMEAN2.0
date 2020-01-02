@@ -14,7 +14,7 @@ export class AddEducationComponent implements OnInit {
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
-  constructor(public userService: UserService, public schoolsService: SchoolsService) { }
+  constructor(public userService: UserService, private schoolsService: SchoolsService) { }
 
   ngOnInit() {
   }

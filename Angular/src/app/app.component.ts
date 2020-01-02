@@ -16,7 +16,7 @@ export class AppComponent {
   title = 'Calisota App';
 
   constructor(private userService: UserService, private router: Router) { }
-  public uploader: FileUploader = new FileUploader({
+  private uploader: FileUploader = new FileUploader({
     url: URL,
     disableMultipart : false,
     autoUpload: true,
@@ -25,7 +25,7 @@ export class AppComponent {
 
     });
 
-  public onFileSelected(event: EventEmitter<File[]>) {
+  private onFileSelected(event: EventEmitter<File[]>) {
     const file: File = event[0];
     console.log(file);
 

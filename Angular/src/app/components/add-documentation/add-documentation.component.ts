@@ -18,10 +18,10 @@ declare var M: any;
 })
 export class AddDocumentationComponent implements OnInit {
 
-  constructor(public employeeService: EmployeeService, public FileService: FilesService) { }
-  private files = [];
-  private url = 'http://localhost:3000/upload';
-  private uploader: FileUploader;
+  constructor(private employeeService: EmployeeService, private FileService: FilesService) { }
+  public uploader: FileUploader;
+  public files = [];
+  public url = 'http://localhost:3000/upload';
 
   ngOnInit() {
     this.uploader = new FileUploader({url: this.url});
@@ -34,59 +34,8 @@ export class AddDocumentationComponent implements OnInit {
         };
       }
     });
-    this.resetForm();
-    this.refreshEmployeeList();
   }
 
-  resetForm(form?: NgForm) {
-    if (form) {
-      form.reset();
-    }
-    this.employeeService.selectedEmployee = {
-      _id: '',
-      name: '',
-      position: '',
-      office: '',
-      salary: null
-    }
-  }
-
-  onSubmit(form: NgForm) {
-    if (form.value._id == "") {
-      this.employeeService.postEmployee(form.value).subscribe((res) => {
-        this.resetForm(form);
-        this.refreshEmployeeList();
-        M.toast({ html: 'Saved successfully', classes: 'rounded' });
-      });
-    }
-    else {
-      this.employeeService.putEmployee(form.value).subscribe((res) => {
-        this.resetForm(form);
-        this.refreshEmployeeList();
-        M.toast({ html: 'Updated successfully', classes: 'rounded' });
-      });
-    }
-  }
-
-  refreshEmployeeList() {
-    this.employeeService.getEmployeeList().subscribe((res) => {
-      this.employeeService.employees = res as Employee[];
-    });
-  }
-
-  onEdit(emp: Employee) {
-    this.employeeService.selectedEmployee = emp;
-  }
-
-  onDelete(_id: string, form: NgForm) {
-    if (confirm('Are you sure to delete this record ?') == true) {
-      this.employeeService.deleteEmployee(_id).subscribe((res) => {
-        this.refreshEmployeeList();
-        this.resetForm(form);
-        M.toast({ html: 'Deleted successfully', classes: 'rounded' });
-      });
-    }
-  }
   downloadPdf(filename, contentType) {
     this.FileService.downloadPDF(filename, contentType).subscribe(
       (res) => {

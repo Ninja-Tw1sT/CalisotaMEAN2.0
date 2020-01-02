@@ -6,17 +6,24 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
-//const social = require('./passport/passport')(app, passport);
-
 const rtsIndex = require('./routes/index.router');
 
 var app = express();
 
 // middleware
-app.use(bodyParser.json());
+
 app.use(cors());
+app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use('/api', rtsIndex);
+app.use('*',(req,res,next) =>{
+  if (req.method == "OPTIONS") {
+    res.status(200);
+    res.send();
+  }else{
+    next();
+  }
+});
 
 // error handler
 app.use((err, req, res, next) => {

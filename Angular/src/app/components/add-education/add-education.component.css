@@ -17,3 +17,9 @@
   color: rgb(23, 34, 110);
   text-align: center;
 }
+
+.center {
+  background-color: blue;
+  background: blue;
+  color: blue;
+}

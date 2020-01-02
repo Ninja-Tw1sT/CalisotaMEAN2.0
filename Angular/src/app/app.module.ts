@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { MaterialModule } from '../../projects/AdminDashboard/src/app/material/material.module';
-// import { FileSelectDirective } from 'ng2-file-upload';
 
 // components
 import { AppComponent } from './app.component';
@@ -20,6 +19,7 @@ import { AddCertificationComponent } from './components/add-certification/add-ce
 import { GamecardComponent } from './components/gamecard/gamecard.component';
 import { ReferralsComponent } from './components/referrals/referrals.component';
 import { AboutComponent } from './components/about/about.component';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 // routes
 import { AppRoutingModule, routes } from './app-routing.module';
@@ -36,6 +36,8 @@ import { CertificateService } from './shared/certificates.service';
 import { SchoolsService } from './shared/schools.service';
 import { EmployeeService } from './shared/employee.service';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { AddUploadComponent } from './components/add-upload/add-upload.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 
 
@@ -55,10 +57,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     VitaeComponent,
     WelcomeComponent,
     AddDocumentationComponent,
- // FileSelectDirective
-
-
+    AddUploadComponent,
+    FileSelectDirective,
+    FileUploadComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -16,7 +16,7 @@ export class SignUpComponent implements OnInit {
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
-  constructor(public userService: UserService, formBuilder: FormBuilder) {
+  constructor(public userService: UserService, private formBuilder: FormBuilder) {
     this.formGroup = formBuilder.group({
       empOpp: true,
       acceptTerms: [true, Validators.requiredTrue]
