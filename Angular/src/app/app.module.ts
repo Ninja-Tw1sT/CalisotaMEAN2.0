@@ -36,8 +36,6 @@ import { CertificateService } from './shared/certificates.service';
 import { SchoolsService } from './shared/schools.service';
 import { EmployeeService } from './shared/employee.service';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { AddUploadComponent } from './components/add-upload/add-upload.component';
-import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 
 
@@ -57,9 +55,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     VitaeComponent,
     WelcomeComponent,
     AddDocumentationComponent,
-    AddUploadComponent,
     FileSelectDirective,
-    FileUploadComponent
   ],
 
   imports: [
